@@ -12,7 +12,7 @@ PTMF is initialy based on a novel reliable multicast transport protocol (level 4
 #Target
 Provide a usefull framework to easy develop multicast applications.
 PTMF is been designed to be used to implement Scada Multicast on SmartGrids.
-At present test applcaitions are using IEC 60870-5-104 protocol. 
+At present test applications are using IEC 60870-5-104 protocol. 
 New protocol IEC 61850 could be used too.
 
 
