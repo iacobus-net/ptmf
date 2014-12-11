@@ -302,7 +302,7 @@ public class TPDUMACK extends TPDUDatos
  }
 
 
-
+
  //===========================================================================
  /**
   * Devuelve una cadena informativa del TPDU Datos

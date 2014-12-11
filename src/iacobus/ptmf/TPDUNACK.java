@@ -87,7 +87,7 @@ package iacobus.ptmf;
  */
 public class TPDUNACK extends TPDUDatos
 {
-
+
   // ATRIBUTOS
   /** Tamaño de la cabecera del TPDUNACK*/
   static final int LONGHEADER = 4*4 ;
