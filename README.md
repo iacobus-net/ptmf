@@ -15,6 +15,11 @@ PTMF is been designed to be used to implement Scada Multicast on SmartGrids.
 At present test applications are using IEC 60870-5-104 protocol. 
 New protocol IEC 61850 could be used too.
 
+#Multicast tools
+Added MFTP. An Multicast Ftp tool
+Added MChat. An Multicast Chat tool
+Addef mutils. a simple ping for send and receiver and test multicast communications on your network.
+
 
 #Licence
 
