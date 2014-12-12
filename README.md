@@ -18,4 +18,8 @@ New protocol IEC 61850 could be used too.
 
 #Licence
 
+<<<<<<< HEAD
 Power Transport Multicast Framework (v2.0) is being moving from v1.2 to 2.0 now to be available under Apache 2.0
+=======
+Power Transport Multicast Framework (v2.0) is being moving from v1.2 to 2.0 now to be available under Apache 2.0
+>>>>>>> github/master
