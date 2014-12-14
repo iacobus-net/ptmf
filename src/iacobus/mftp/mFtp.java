@@ -400,10 +400,10 @@ public class mFtp implements I18n
   {
     if (this.sesionMulticast != null)
     {
-      this.insertInformacionString("Cerrando la Sesión Multicast....");
+      this.insertInformacionString("Closing Multicast session....");
       this.sesionMulticast.close();
       this.sesionMulticast.stopThread();
-      this.insertInformacionString("Desconectado");
+      this.insertInformacionString("Disconnected");
       this.sesionMulticast = null;
     }
   }
@@ -420,7 +420,7 @@ public class mFtp implements I18n
          {
            try
            {
-            	jDialogConectar = new JDialogConectar(null,"Conexión Multicast...",true);
+            	jDialogConectar = new JDialogConectar(null,"Multicast connection...",true);
 
            }
 	   catch (java.lang.Throwable e)
@@ -558,7 +558,7 @@ public class mFtp implements I18n
 
 
       this.getJFrame().setTitle("PTMF: mFtp - "+addressIPMulticast+" TTL="+ttlSesion);
-      this.insertInformacionString("Iniciando sesión multicast a "+addressIPMulticast+" TTL="+ttlSesion);
+      this.insertInformacionString("Init multicast session to "+addressIPMulticast+" TTL="+ttlSesion);
 
       try
       {
@@ -583,7 +583,7 @@ public class mFtp implements I18n
 
      //logoOff();
      this.insertStringJTextPane(getJTextPaneInformacion()," ","icono_informacion");
-     this.insertStringJTextPane(getJTextPaneInformacion(),"Se ha cerrado la conexión Multicast."+newline,"informacion");
+     this.insertStringJTextPane(getJTextPaneInformacion(),"Multicast connection closed."+newline,"informacion");
 
      // reset
      idgls = 0;
