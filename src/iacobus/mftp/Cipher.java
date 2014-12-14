@@ -1,19 +1,22 @@
+/**
+  Fichero: Cipher.java  1.0 1/12/99
 
- //============================================================================
-//
-//	Copyright (c) 1999 . All Rights Reserved.
-//
-//----------------------------------------------------------------------------
-//
-//	Fichero: Cipher.java  1.0 1/12/99
-//
-// 	Autores: 	M. Alejandro García Domínguez (AlejandroGarcia@wanadoo.es)
-//						Antonio Berrocal Piris
-//
-//	Descripción: Clase Cipher
-//
-//
-//----------------------------------------------------------------------------
+  Copyright (c) 2000-2014 . All Rights Reserved.
+  Autor: Alejandro García Domínguez alejandro.garcia.dominguez@gmail.com   alejandro@iacobus.com
+         Antonio Berrocal Piris antonioberrocalpiris@gmail.com
+ 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+*/
 
 package iacobus.mftp;
 
@@ -28,8 +31,8 @@ class Cipher{
   /** Objeto descifrador */
   javax.crypto.Cipher unCipher = null;
 
-  /** MFtp */
-  //MFtp ftp = null;
+  /** mFtp */
+  //mFtp ftp = null;
 
   private  byte[] salt = { (byte)0xe7, (byte)0x43, (byte)0x71, (byte)0xec,
     (byte)0x7e, (byte)0xb8, (byte)0xff, (byte)0x35 };
@@ -82,33 +85,33 @@ class Cipher{
        }
        catch( java.security.NoSuchAlgorithmException e)
        {
-          MFtp.getFTP().error(e.toString());
+          mFtp.getFTP().error(e.toString());
          return;
        }
        catch(java.security.InvalidKeyException e)
        {
-          MFtp.getFTP().error(e.toString());
+          mFtp.getFTP().error(e.toString());
          return;
        }
        catch(java.security.NoSuchProviderException e)
        {
-          MFtp.getFTP().error(e.toString());
+          mFtp.getFTP().error(e.toString());
          return;
        }
        catch(javax.crypto.NoSuchPaddingException e)
        {
-          MFtp.getFTP().error(e.toString());
+          mFtp.getFTP().error(e.toString());
          return;
        }
 
        catch(java.security.InvalidAlgorithmParameterException e)
        {
-          MFtp.getFTP().error(e.toString());
+          mFtp.getFTP().error(e.toString());
          return;
        }
        catch(java.security.spec.InvalidKeySpecException e)
        {
-          MFtp.getFTP().error(e.toString());
+          mFtp.getFTP().error(e.toString());
                   return;
        }
 

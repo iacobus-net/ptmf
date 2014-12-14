@@ -12,7 +12,7 @@ import java.text.*;
 
 
 /**
- * <p>Title: mEscucha2</p>
+ * <p>Title: mPingReceiver2</p>
  *
  * <p>Description: Test de red multicast</p>
  * Utilidad de verificacion de paquetes multicast en la red. Se pone en escucha
@@ -24,7 +24,7 @@ import java.text.*;
  * @author Alejandro Garcia
  * @version 1.0
  */
-public class mEscucha2 {
+public class mPingReceiver2 {
 
 
 /** Tamaño del array de Transmisión/Recepcion */
@@ -55,11 +55,11 @@ private long lRatio = 0;
 /**
 * Constructor
 */
-public mEscucha2(String dirIPMulticast, String puerto) throws IOException
+public mPingReceiver2(String dirIPMulticast, String puerto) throws IOException
 {
 System.out.println("");
 System.out.println("");
-System.out.println("mEscucha2 v1.0");
+System.out.println("mPingReceiver2 v1.0");
 System.out.println("(C)2006 M.Alejandro Garcia");
 System.out.println("");
 
@@ -148,7 +148,7 @@ try
             today = new Date();
             output = formatter.format(today);
             Log.log("*PERDIDA*",output+" Paquetes perdidos: "+(iPing-iContador-1));
-            logger("[mEscucha2]: *PERDIDA MULTICAST*  Paquetes perdidos: "+(iPing-iContador-1));
+            logger("[mPingReceiver2]: *PERDIDA MULTICAST*  Paquetes perdidos: "+(iPing-iContador-1));
 
         }
 
@@ -160,7 +160,7 @@ try
         today = new Date();
          output = formatter.format(today);
          Log.log("*PERDIDA*",output+" No se han recibido paquetes en 5 seg!");
-         logger("[mEscucha2]: *PERDIDA MULTICAST*  No se han recibido paquetes en 5 seg! desde surapb");
+         logger("[mPingReceiver2]: *PERDIDA MULTICAST*  No se han recibido paquetes en 5 seg! desde surapb");
      }
 
     }
@@ -218,7 +218,7 @@ if(args.length != 2)
 
 try
 {
-    mEscucha2 mescucha = new mEscucha2(args[0],args[1]);
+    mPingReceiver2 mescucha = new mPingReceiver2(args[0],args[1]);
     mescucha.run();
 }
 catch(IOException io)
@@ -298,8 +298,8 @@ private void resumenTransferencia(long lTiempoInicio, long lBytesTransmitidos)
 private static void uso()
 {
 System.out.println("");
-System.out.println("mEscucha v1.0" );
-System.out.println("Uso: java mtest.mEscucha2 <dir. ip multicast> <puerto>");
+System.out.println("mPingReceiver2 v1.1" );
+System.out.println("Uso: java iacobus.mutil.mPingReceiver2 <dir. ip multicast> <puerto>");
 System.out.println("");
 System.out.println("");
 }

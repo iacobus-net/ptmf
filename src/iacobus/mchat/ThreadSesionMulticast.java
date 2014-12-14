@@ -1,19 +1,21 @@
-//============================================================================
-//
-//	Copyright (c) 1999 . All Rights Reserved.
-//
-//----------------------------------------------------------------------------
-//
-//	Fichero: ThreadSesionMulticast.java  1.0 1/12/99
-//
-// 	Autores: 	M. Alejandro García Domínguez (AlejandroGarcia@wanadoo.es)
-//						Antonio Berrocal Piris
-//
-//	Descripción: Clase ThreadSesionMulticast.
-//
-//
-//----------------------------------------------------------------------------
+/**
+  
+  Copyright (c) 2000-2014 . All Rights Reserved.
+  @Autor: Alejandro García Domínguez alejandro.garcia.dominguez@gmail.com   alejandro@iacobus.com
+         Antonio Berrocal Piris antonioberrocalpiris@gmail.com
+ 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
 
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations 
+  */
 
 package iacobus.mchat;
 
@@ -46,8 +48,8 @@ import java.io.InputStreamReader;
   /** Socket Multicast No Fiable*/
   private DatagramSocketPTMF datagramSocket = null;
 
-  /** MChat */
-  private MChat chat = null;
+  /** mChat */
+  private mChat chat = null;
 
   /** Flag de lectura de datos del socket */
   private boolean bLeer = false;
@@ -101,7 +103,7 @@ import java.io.InputStreamReader;
  /**
   * Constructor
   */
-  public ThreadSesionMulticast(MChat chat)
+  public ThreadSesionMulticast(mChat chat)
   {
     super();
 

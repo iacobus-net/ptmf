@@ -1,5 +1,26 @@
 package iacobus.mftp;
 
+/**
+ * <p>Title: mFtp</p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c)2003-2014</p>
+ * @author M. Alejandro Garcia Dominguez  alejandro.garcia.dominguez@gmail.com alejandro@iacobus.net
+ * @version 1.1
+ * 
+ * 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+*/
+
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.JTree;
@@ -11,14 +32,6 @@ import java.awt.event.*;
 //import ipworks.*;
 import javax.swing.event.*;
 
-/**
- * <p>Title: MFtp</p>
- * <p>Description: </p>
- * <p>Copyright: Copyright (c) 2003</p>
- * <p>Company: </p>
- * @author M. Alejandro Garcia Dominguez
- * @version 1.1
- */
 
 public class JFramePrincipal extends JFrame
 {
@@ -63,7 +76,7 @@ public class JFramePrincipal extends JFrame
   JToolBar jToolBarINformacion = new JToolBar();
   JSplitPane jSplitPaneInformacion = new JSplitPane();
   JScrollPane jScrollPaneIzquierdaInformacion = new JScrollPane();
-  //JTextPane jTextPaneInformacion = MFtp.getJTextPane();
+  //JTextPane jTextPaneInformacion = mFtp.getJTextPane();
   JScrollPane jScrollPaneDerechaInformacion = new JScrollPane();
   JButton jButtonDesconectar = new JButton();
   BorderLayout borderLayout5 = new BorderLayout();
@@ -97,7 +110,7 @@ public class JFramePrincipal extends JFrame
   Component component8;
 
   /**
-   * Frame principal de MFtp. Este frame se ha generado con el editor gráfico,
+   * Frame principal de mFtp. Este frame se ha generado con el editor gráfico,
    * ha diferencia de la versión 1.0 que se realizó con programación en código.
    */
   public JFramePrincipal()
@@ -119,8 +132,8 @@ public class JFramePrincipal extends JFrame
   void init()
   {
     //Cargar imágenes...
-    ImageIconLogoOff = new ImageIcon(MFtp.getImage("logo.jpg"));
-    ImageIconLogoOn = new ImageIcon(MFtp.getImage("bola.gif"));
+    ImageIconLogoOff = new ImageIcon(mFtp.getImage("logo.jpg"));
+    ImageIconLogoOn = new ImageIcon(mFtp.getImage("bola.gif"));
 
     //Iniciar estilos...
     iniciarEstilos();
@@ -137,19 +150,19 @@ public class JFramePrincipal extends JFrame
   {
    //Iniciar estilos
     // ================ Panel Información =========================
-    MFtp.iniciarStylesJTextPane(jTextPaneInformacion);
+    mFtp.iniciarStylesJTextPane(jTextPaneInformacion);
     copyright();
     jTextPaneInformacion.getLayout().addLayoutComponent("jTextPaneInformacion",jTextPaneInformacion);
 
 
     // ================ Panel Receptores  =========================
-    MFtp.iniciarStylesJTextPane(jTextPaneReceptor);
-    MFtp.insertRecepcionString("Receptor","icono_informacion");
+    mFtp.iniciarStylesJTextPane(jTextPaneReceptor);
+    mFtp.insertRecepcionString("Receiver","icono_informacion");
 
 
     // ================ Panel Transmisor  =========================
-    MFtp.iniciarStylesJTextPane(jTextPaneTransmisor);
-    MFtp.insertTransmisionString("Transmisior","icono_informacion");
+    mFtp.iniciarStylesJTextPane(jTextPaneTransmisor);
+    mFtp.insertTransmisionString("Sender","icono_informacion");
 
   }
 
@@ -228,7 +241,7 @@ public class JFramePrincipal extends JFrame
                    //displayURL(book.bookURL);
 
                    cardLayoutInformacion.next(jPanelInformacion);
-                  //MFtp.insertInformacion(jTextPaneInformacion,"panel cambiado");
+                  //mFtp.insertInformacion(jTextPaneInformacion,"panel cambiado");
 
                 }
                 else
@@ -267,7 +280,7 @@ public class JFramePrincipal extends JFrame
     jTabbedPane1.setTabPlacement(JTabbedPane.BOTTOM);
     jTabbedPane1.setBorder(BorderFactory.createEtchedBorder());
     jPanel2.setLayout(borderLayout1);
-    jLabel3.setText(" MFtp v1.1");
+    jLabel3.setText(" mftp v1.2");
     jLabel3.setForeground(new Color(0, 0, 66));
     jLabel3.setFont(new java.awt.Font("Dialog", 1, 20));
     jPanel1.setLayout(gridLayout1);
@@ -280,7 +293,7 @@ public class JFramePrincipal extends JFrame
     jLabelPTMF.setHorizontalAlignment(SwingConstants.RIGHT);
    //this.setContentPane(jPanelContentPanel);
     this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-    this.setTitle("Protocolo de Transporte Multicast Fiable");
+    this.setTitle("Power Transport Multicast Framework");
     this.addWindowListener(new java.awt.event.WindowAdapter()
     {
       public void windowClosing(WindowEvent e)
@@ -310,7 +323,7 @@ public class JFramePrincipal extends JFrame
     jButtonTxEnviar.setPreferredSize(new Dimension(120, 25));
     jButtonTxEnviar.setIcon(new ImageIcon(JFramePrincipal.class.getResource("images/enviar.gif")));
     jButtonTxEnviar.setMnemonic('0');
-    jButtonTxEnviar.setText("Enviar fichero");
+    jButtonTxEnviar.setText("Send file");
     jButtonTxEnviar.addActionListener(new java.awt.event.ActionListener()
     {
       public void actionPerformed(ActionEvent e)
@@ -324,7 +337,7 @@ public class JFramePrincipal extends JFrame
     jButtonDesconectar.setPreferredSize(new Dimension(120, 25));
     jButtonDesconectar.setIcon(new ImageIcon(JFramePrincipal.class.getResource("images/desconectar.gif")));
     jButtonDesconectar.setMnemonic('0');
-    jButtonDesconectar.setText("Desconectar");
+    jButtonDesconectar.setText("Disconnect");
     jButtonDesconectar.addActionListener(new java.awt.event.ActionListener()
     {
       public void actionPerformed(ActionEvent e)
@@ -338,7 +351,7 @@ public class JFramePrincipal extends JFrame
     jButtonConectar.setPreferredSize(new Dimension(100, 25));
     jButtonConectar.setDisabledIcon(new ImageIcon(JFramePrincipal.class.getResource("images/conectar_inhabilitado.gif")));
     jButtonConectar.setIcon(new ImageIcon(JFramePrincipal.class.getResource("images/conectar.gif")));
-    jButtonConectar.setText("Conectar");
+    jButtonConectar.setText("Connect");
     jButtonConectar.addActionListener(new java.awt.event.ActionListener()
     {
       public void actionPerformed(ActionEvent e)
@@ -351,18 +364,29 @@ public class JFramePrincipal extends JFrame
     jTextArea1.setBorder(BorderFactory.createLoweredBevelBorder());
     jTextArea1.setEditable(false);
     jTextArea1.setMargin(new Insets(5, 5, 5, 5));
-    jTextArea1.setText("PTMF Y MFtp fueron codesarrollados por Antonio Berrocal Piris " +
-    "entre los años 1999 y 2000 para la realización conjunta del Proyecto " +
-    "Fin de Carrera para la obtención del título de Ingeniero Informático, " +
-    "este trabajo fue calificado con Matrícula de Honor. \\n Este software " +
-    "se proporciona \'tal como es\' ....");
+    jTextArea1.setText("(C) Copyright 2000-2014  iacobus.net \n"
+     +"Alejandro Garcia Dominguez  alejandro.garcia.dominguez@gmail.com // alejandro@iacobus.net \n"
+     +"Antonio Berrocal Piris antonioberrocalpiris@gmail.com \n" 
+     +"\n"
+     +"Licensed under the Apache License, Version 2.0 (the \"License\"\n" 
+     +"you may not use this file except in compliance with the License.\n" 
+     +"You may obtain a copy of the License at \n" 
+     +"\n" 
+     +"http://www.apache.org/licenses/LICENSE-2.0\n" 
+     +"\n" 
+     +"Unless required by applicable law or agreed to in writing, software\n" 
+     +"distributed under the License is distributed on an \"AS IS\" BASIS,\n" 
+     +"WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n" 
+     +"See the License for the specific language governing permissions and\n" 
+     +"limitations under the License.\n"
+     );
     jTextArea1.setLineWrap(true);
     jTextArea1.setWrapStyleWord(true);
     jLabel1.setFont(new java.awt.Font("Dialog", 1, 12));
     jLabel1.setOpaque(true);
     jLabel1.setHorizontalAlignment(SwingConstants.LEFT);
     jLabel1.setHorizontalTextPosition(SwingConstants.LEFT);
-    jLabel1.setText("   (C) 2003  - M. Alejandro García Domínguez       ");
+    jLabel1.setText("   (C) 2000-2014  - iacobus.net    ");
     jPanel4.setLayout(borderLayout7);
     jPanelInformacion.setLayout(cardLayoutInformacion);
 
@@ -403,10 +427,10 @@ public class JFramePrincipal extends JFrame
     jPanelAbout.add(component8, BorderLayout.SOUTH);
     //jPanel4.add(component4, nel4.add(component4,  BorderLayout.NORTH);
     //jPanelAbout.add(component5,  BorderLayout.EAST);
-    jTabbedPane1.add(jPanelInfo, "Información Árbol Multicast");
-    jTabbedPane1.add(jPanelReceptor, "Receptor");
-    jTabbedPane1.add(jPanelTransmisor, "Transmisor");
-    jTabbedPane1.add(jPanelAbout,    "Acerca de...");
+    jTabbedPane1.add(jPanelInfo, "Multicast Tree");
+    jTabbedPane1.add(jPanelReceptor, "Receiver");
+    jTabbedPane1.add(jPanelTransmisor, "Sender");
+    jTabbedPane1.add(jPanelAbout,    "About...");
     jToolBar1.add(jButtonRxCancelar, null);
     jPanelReceptor.add(jTextPaneReceptor,  BorderLayout.CENTER);
 
@@ -440,7 +464,7 @@ public class JFramePrincipal extends JFrame
   void jToggleButtonTxConectar_actionPerformed(ActionEvent e)
   {
     //Conectar.
-    //MFtp.getFTP().getJDialogConectar().show();
+    //mFtp.getFTP().getJDialogConectar().show();
   }
 
   /**
@@ -449,9 +473,9 @@ public class JFramePrincipal extends JFrame
    */
   void this_windowClosing(WindowEvent e)
   {
-    if( JOptionPane.showConfirmDialog(this,(Object)"¿Desea cerrar la aplicación?","Cerrar",JOptionPane.OK_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE) == JOptionPane.OK_OPTION)
+    if( JOptionPane.showConfirmDialog(this,(Object)"¿Really close?","Close",JOptionPane.OK_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE) == JOptionPane.OK_OPTION)
     {
-      MFtp.getFTP().desconectar();
+      mFtp.getFTP().desconectar();
       System.exit(0);
     }
   }
@@ -473,7 +497,7 @@ public class JFramePrincipal extends JFrame
   void jButtonConectar_actionPerformed(ActionEvent e)
   {
     //Conectar.
-    MFtp.getFTP().getJDialogConectar().show();
+    mFtp.getFTP().getJDialogConectar().show();
   }
 
   /**
@@ -482,9 +506,9 @@ public class JFramePrincipal extends JFrame
    */
   void jButtonDesconectar_actionPerformed(ActionEvent e)
   {
-    MFtp.getFTP().desconectar();
+    mFtp.getFTP().desconectar();
 
-    this.setTitle("Desconectado");
+    this.setTitle("Disconnect");
     this.jTreeInformacion.clear();
     //this.jTextPaneInformacion.setText("");
     //copyright();
@@ -500,7 +524,7 @@ public class JFramePrincipal extends JFrame
    */
   void jButtonTxEnviar_actionPerformed(ActionEvent e)
   {
-     MFtp ftp = MFtp.getFTP();
+     mFtp ftp = mFtp.getFTP();
      //JFileChooser jFileChooser = null;
 
     if(this.jFileChooser== null)
@@ -508,20 +532,20 @@ public class JFramePrincipal extends JFrame
         this.jFileChooser = new JFileChooser();
     }
 
-    if( this.jFileChooser.showDialog(this,"Enviar") == JFileChooser.APPROVE_OPTION )
+    if( this.jFileChooser.showDialog(this,"Send") == JFileChooser.APPROVE_OPTION )
     {
 
        if(this.jFileChooser.getSelectedFile()==null)
        {
-          JOptionPane.showMessageDialog(this,"No ha seleccionado ningún fichero para enviar."+MFtp.newline+"Debe seleccionar algún fichero para poder iniciar la transferencia"+MFtp.newline+"haciendo doble click en el árbol de directorios del panel.","FICHERO NO SELECCIONADO",JOptionPane.INFORMATION_MESSAGE);
+          JOptionPane.showMessageDialog(this,"Any file selected for transmission."+mFtp.newline+"Please, select a file"+mFtp.newline+"You can use double click on the directory tree ","File don't selected.",JOptionPane.INFORMATION_MESSAGE);
           return;
        }
 
-       if (JOptionPane.showConfirmDialog(this,"Enviar el fichero "+this.jFileChooser.getSelectedFile().getAbsolutePath(),"Confirmación",JOptionPane.OK_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE) == JOptionPane.OK_OPTION)
+       if (JOptionPane.showConfirmDialog(this,"Send file "+this.jFileChooser.getSelectedFile().getAbsolutePath(),"Confirmación",JOptionPane.OK_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE) == JOptionPane.OK_OPTION)
        {
            if (ftp.getSesionMulticast() == null)
            {
-             JOptionPane.showMessageDialog(this,"No está establecida ninguna conexión multicast."+MFtp.newline+"Antes de enviar un fichero inicie una conexión multicast"+MFtp.newline+"Pulse sobre el botón Conectar de la pestaña Información"+MFtp.newline+"para establecer una nueva conexión multicast","Desconectado",JOptionPane.INFORMATION_MESSAGE);
+             JOptionPane.showMessageDialog(this,"There isn't multicast connection."+mFtp.newline+"Please init a multicast connection"+mFtp.newline+"Push \"Connect\" button"+mFtp.newline+"to init a new multicast connection","Disconnect",JOptionPane.INFORMATION_MESSAGE);
              return;
            }
 
@@ -529,7 +553,7 @@ public class JFramePrincipal extends JFrame
        }
        else
        {
-         ftp.insertTransmisionString("Enviar cancelado por el usuario","icono_informacion");
+         ftp.insertTransmisionString("Transfer cancel by user","icono_informacion");
        }
       }
   }
@@ -545,8 +569,8 @@ public class JFramePrincipal extends JFrame
    */
   void copyright()
   {
-    MFtp.insertInformacionString(MFtp.COPYRIGHT);
-    MFtp.insertInformacionString(" "+MFtp.VERSION);
+    mFtp.insertInformacionString(mFtp.COPYRIGHT);
+    mFtp.insertInformacionString(" "+mFtp.VERSION);
 
   }
 
@@ -565,12 +589,12 @@ public class JFramePrincipal extends JFrame
     copyright();
 
     this.jTextPaneReceptor.setText("");
-    MFtp.getFTP().insertRecepcionString("Recepcion","icono_informacion");
+    mFtp.getFTP().insertRecepcionString("Receiver","icono_informacion");
 
     this.jTextPaneTransmisor.setText("");
-    MFtp.getFTP().insertTransmisionString("Transmision","icono_informacion");
+    mFtp.getFTP().insertTransmisionString("Sender","icono_informacion");
 
-    if(MFtp.getFTP().esEmisor())
+    if(mFtp.getFTP().esEmisor())
     {
       this.jButtonTxEnviar.setEnabled(true);
       this.jTextPaneTransmisor.setEnabled(true);

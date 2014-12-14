@@ -8,7 +8,7 @@ import java.lang.Integer;
 import iacobus.ptmf.Log;
 
 /**
- * <p>Title: mPing</p>
+ * <p>Title: mPingSender</p>
  *
  * <p>Description: Test de red multicast</p>
  * Utilidad para enviar paquetes de sondeo multicast
@@ -19,13 +19,8 @@ import iacobus.ptmf.Log;
  * @author Alejandro Garcia
  * @version 1.0
  */
-public class mPing2 {
-    public mPing2() {
-        try {
-            jbInit();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+public class mPingSender {
+    public mPingSender() {
     }
 
 
@@ -57,12 +52,12 @@ public class mPing2 {
     /**
     * Constructor
     */
-    public mPing2(String dirIPMulticast, String puerto,String ttl) throws IOException
+    public mPingSender(String dirIPMulticast, String puerto,String ttl) throws IOException
     {
     System.out.println("");
     System.out.println("");
-    System.out.println("mPing2 v1.0");
-    System.out.println("(C)2006 M.Alejandro Garcia");
+    System.out.println("mPingSender v1.0");
+    System.out.println("(C)2005 M.Alejandro Garcia");
 
 
 
@@ -85,18 +80,18 @@ public class mPing2 {
     {
         //Crear el socket multicast
         socket = new MulticastSocket(dirIPMcast.getPort());
-        Log.log("Socket creado"," OK");
+        Log.log("","Socket creado. OK");
 
         //Join
         socket.joinGroup(dirIPMcast.getInetAddress());
-        Log.log("Join"," "+dirIPMcast.getHostAddress()+":"+dirIPMcast.getPort());
+        Log.log("","Join OK."+dirIPMcast.getHostAddress()+":"+dirIPMcast.getPort());
 
         //Buffer de recepcion
         socket.setReceiveBufferSize(1024*64);
         socket.setSendBufferSize(1024*64);
 
         socket.setTimeToLive(this.TTLSesion);
-        Log.log("TTL"," "+this.TTLSesion);
+        Log.log("","TTL: "+this.TTLSesion);
 
          byte[] buf = new byte[this.TAMAÑO_ARRAY_BYTES];
          DatagramPacket recv = new DatagramPacket(buf, buf.length);
@@ -110,17 +105,9 @@ public class mPing2 {
             DatagramPacket hi = new DatagramPacket(msg.getBytes(), msg.length(),dirIPMcast.getInetAddress(),dirIPMcast.getPort());
             socket.send(hi);
 
-            //Log.log("mPing "+contador,""+dirIPMcast.getHostAddress()+":"+dirIPMcast.getPort());
+            Log.log("","[mPingSender "+contador+"] "+dirIPMcast.getHostAddress()+":"+dirIPMcast.getPort());
 
-            contador =(contador+1)%100 ;
-
-
-            /* Depuracion
-            if(contador == 10) contador=15;
-            if(contador == 20) contador=30;
-            if(contador == 35) contador=90;
-            */
-
+            contador =contador+1;
             iacobus.ptmf.Temporizador.sleep(1000);
         }
 
@@ -233,8 +220,9 @@ public class mPing2 {
     private static void uso()
     {
     System.out.println("");
-    System.out.println("mPing v1.0" );
-    System.out.println("Uso: java mtest.mPing2 <dir. ip multicast> <puerto> <ttl>");
+    System.out.println("mPingSender v1.0" );
+    System.out.println("(C) 2005-2014 Alejandro Garcia");
+    System.out.println("Uso: java iacobus.mutil.mPingSender <dir. ip multicast> <puerto> <ttl>");
     System.out.println("");
     System.out.println("");
     }
@@ -268,7 +256,7 @@ public class mPing2 {
 
       try
       {
-          mPing2 mping = new mPing2(args[0],args[1],args[2]);
+          mPingSender mping = new mPingSender(args[0],args[1],args[2]);
           mping.run();
       }
       catch(IOException io)
@@ -277,8 +265,6 @@ public class mPing2 {
       }
       }
 
-    private void jbInit() throws Exception {
-    }
 
 
 }

@@ -23,7 +23,7 @@ import java.util.Iterator;
  * @author Alejandro Garcia
  * @version 1.0
  */
-public class mEscucha {
+public class mPingReceiver {
 
 
 /** Tamaño del array de Transmisión/Recepcion */
@@ -54,12 +54,12 @@ private long lRatio = 0;
 /**
 * Constructor
 */
-public mEscucha(String dirIPMulticast, String puerto) throws IOException
+public mPingReceiver(String dirIPMulticast, String puerto) throws IOException
 {
 System.out.println("");
 System.out.println("");
-System.out.println("mEscucha v1.0");
-System.out.println("(C)2005 M.Alejandro Garcia");
+System.out.println("mPingReceiver v1.0");
+System.out.println("(C)2005-2014 M.Alejandro Garcia");
 System.out.println("");
 
 
@@ -162,7 +162,7 @@ if(args.length != 2)
 
 try
 {
-    mEscucha mescucha = new mEscucha(args[0],args[1]);
+    mPingReceiver mescucha = new mPingReceiver(args[0],args[1]);
     mescucha.run();
 }
 catch(IOException io)
@@ -242,8 +242,8 @@ private void resumenTransferencia(long lTiempoInicio, long lBytesTransmitidos)
 private static void uso()
 {
 System.out.println("");
-System.out.println("mEscucha v1.0" );
-System.out.println("Uso: java mtest.mEscucha <dir. ip multicast> <puerto>");
+System.out.println("mPingReceiver v1.0" );
+System.out.println("Uso: java iacobus.mutil.mPingReceiver <dir. ip multicast> <puerto>");
 System.out.println("");
 System.out.println("");
 }

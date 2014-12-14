@@ -1,19 +1,21 @@
-//============================================================================
-//
-//	Copyright (c) 1999 . All Rights Reserved.
-//
-//----------------------------------------------------------------------------
-//
-//	Fichero: JDialogConectar.java  1.0 1/12/99
-//
-// 	Autores: 	M. Alejandro García Domínguez (garcia@arconet.es)
-//						Antonio Berrocal Piris
-//
-//	Descripción: Clase JDialogConectar.
-//
-//
-//----------------------------------------------------------------------------
+/**
+  
+  Copyright (c) 2000-2014 . All Rights Reserved.
+  @Autor: Alejandro García Domínguez alejandro.garcia.dominguez@gmail.com   alejandro@iacobus.com
+         Antonio Berrocal Piris antonioberrocalpiris@gmail.com
+ 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
 
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+*/
 
 package iacobus.mchat;
 
@@ -35,8 +37,8 @@ import java.net.InetAddress;
  public class JDialogConectar extends JDialog
  {
 
-  /** Clase MChat */
-  MChat chatMulticast = null;
+  /** Clase mChat */
+  mChat chatMulticast = null;
 
   /** Dirección IP MUlticast */
   private Address addressIPMulticast = null;
@@ -112,7 +114,7 @@ import java.net.InetAddress;
   * @param title El título del diálogo
   * @param modal Boolean que especifica si el diálogo es modal o no
   */
- public JDialogConectar(MChat chatMulticast,Frame frame, String title, boolean modal) {
+ public JDialogConectar(mChat chatMulticast,Frame frame, String title, boolean modal) {
     super(frame, title, modal);
     try  {
       Init();
@@ -133,7 +135,7 @@ import java.net.InetAddress;
   * Constructor genérico. Utiliza como JFrame null, de título "" y  crea un diálogo
   * modal
   */
-  public JDialogConectar(MChat chatMulticast) {
+  public JDialogConectar(mChat chatMulticast) {
     this(chatMulticast,null, "", true);
   }
 

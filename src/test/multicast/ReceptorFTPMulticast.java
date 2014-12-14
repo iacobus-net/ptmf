@@ -73,7 +73,7 @@ import java.util.Iterator;
 
 
 /**
- * MFtp operativo versión 1.0 en modo texto para pruebas de consola
+ * mFtp operativo versión 1.0 en modo texto para pruebas de consola
  * y depuración de PTMF.
  * <p>Title: PTMF v1.1</p>
  * <p>Description: Protocolo de Transporte Multicast Fiable</p>
@@ -620,13 +620,13 @@ public class ReceptorFTPMulticast extends Thread
 
     if( evento.esAñadido())
     {
-       //Log.log("IDGLS: "+MFtp.getFTP().idgls,"");
+       //Log.log("IDGLS: "+mFtp.getFTP().idgls,"");
        Log.log(mn,"Nuevo IDGL: "+evento.getIDGL());
 
     }
     else
     {
-       //Log.log("IDGLS: "+MFtp.getFTP().idgls,"");
+       //Log.log("IDGLS: "+mFtp.getFTP().idgls,"");
        Log.log(mn,"IDGL eliminado: "+evento.getIDGL());
     }
  }
@@ -641,12 +641,12 @@ public class ReceptorFTPMulticast extends Thread
 
     if( evento.esAñadido())
     {
-       //Log.log("ID_Sockets: "+MFtp.getFTP().id_sockets,"");
+       //Log.log("ID_Sockets: "+mFtp.getFTP().id_sockets,"");
        Log.log(mn,"Nuevo ID_Socket: "+evento.getID_Socket());
     }
     else
     {
-      //Log.log("ID_Sockets: "+MFtp.getFTP().id_sockets,"");
+      //Log.log("ID_Sockets: "+mFtp.getFTP().id_sockets,"");
       Log.log(mn,"ID_Socket eliminado: "+evento.getID_Socket());
     }
 
@@ -795,7 +795,7 @@ public class ReceptorFTPMulticast extends Thread
 
  //==========================================================================
  /**
-  * Enviar Identificador de MFtp PTMF v1.0, Enviar Tamaño del Fichero,
+  * Enviar Identificador de mFtp PTMF v1.0, Enviar Tamaño del Fichero,
   * Enviar Nombre del Fichero.....
   */
  private void sendCabeceraFTP(long lSize,String sFileName) throws IOException

@@ -1,19 +1,21 @@
-//============================================================================
-//
-//	Copyright (c) 1999 . All Rights Reserved.
-//
-//----------------------------------------------------------------------------
-//
-//	Fichero: MFtp.java  1.0 1/12/99
-//
-// 	Autores: M. Alejandro García Domínguez (malejandrogarcia@wanadoo.es)
-//		 Antonio Berrocal Piris
-//
-//	Descripción: Clase MFtp.
-//
-//
-//----------------------------------------------------------------------------
+/**
+ * Fichero: JDialogRecepcion.java  1.0 1/12/99
+  Copyright (c) 2000-2014 . All Rights Reserved.
+  Autor: Alejandro García Domínguez alejandro.garcia.dominguez@gmail.com   alejandro@iacobus.com
+         Antonio Berrocal Piris antonioberrocalpiris@gmail.com
+ 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
 
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+*/
 
 package iacobus.mftp;
 
@@ -43,21 +45,21 @@ import iaik.security.provider.IAIK;
 
 
 /**
- *  <b>Aplicacion MFtp, con soporte para
+ *  <b>Aplicacion mFtp, con soporte para
  *  internacionalización.
- *  Implementa el Protocolo MFtp v1.0
+ *  Implementa el Protocolo mFtp v1.0
  *  <br> Idiomas soportados por ahora: Español e Inglés.</b>
  *  Implementa las interfaces I18n para Internacionalizacion.
  */
 
-public class MFtp implements I18n
+public class mFtp implements I18n
 {
 
   /** Copyright */
-  public static String COPYRIGHT = "(C) Copyright 2000 - 2003 M. Alejandro García Domínguez";
+  public static String COPYRIGHT = "(C) Copyright 2000-2014  ptmf.iacobus.net";
 
   /** Copyright */
-  public static String VERSION = "MFtp v1.1";
+  public static String VERSION = "mftp v1.2";
 
 
   /** Sesión Multicast */
@@ -73,7 +75,7 @@ public class MFtp implements I18n
   private char[] clave = null;
 
   /** Clase FTP */
-  private static MFtp ftp = null;
+  private static mFtp ftp = null;
 
 
   //=================== Componentes ==========================
@@ -121,7 +123,7 @@ public class MFtp implements I18n
   * Constructor genérico para un applet y una aplicación.
   * @param unApplet El applet en el navegador o null para una aplicación.
   */
-  public MFtp() {
+  public mFtp() {
      super();
      this.ftp = this;
      String vers = System.getProperty("java.version");
@@ -139,7 +141,7 @@ public class MFtp implements I18n
  /**
   *  Obtiene una instancia FTP
   */
-  static MFtp getFTP(){ return ftp;}
+  static mFtp getFTP(){ return ftp;}
 
 
  //==========================================================================
@@ -288,7 +290,7 @@ public class MFtp implements I18n
  {
 
         //Obtener la imágen...
-        URL url = MFtp.class.getResource("images/" + fileName);
+        URL url = mFtp.class.getResource("images/" + fileName);
         /*if(this.esApplet())
         {
           Image img = getJApplet().getToolkit().createImage(url);
@@ -555,7 +557,7 @@ public class MFtp implements I18n
       this.bEmisor = bEmisor;
 
 
-      this.getJFrame().setTitle("PTMF: MFtp - "+addressIPMulticast+" TTL="+ttlSesion);
+      this.getJFrame().setTitle("PTMF: mFtp - "+addressIPMulticast+" TTL="+ttlSesion);
       this.insertInformacionString("Iniciando sesión multicast a "+addressIPMulticast+" TTL="+ttlSesion);
 
       try
@@ -607,7 +609,7 @@ public class MFtp implements I18n
   */
   public static void main(String s[])
   {
-     MFtp ftp = new MFtp();
+     mFtp ftp = new mFtp();
   }
 
 

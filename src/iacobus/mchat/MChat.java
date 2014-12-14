@@ -1,19 +1,21 @@
-//============================================================================
-//
-//	Copyright (c) 1999 . All Rights Reserved.
-//
-//----------------------------------------------------------------------------
-//
-//	Fichero: MChat.java  1.0 1/12/99
-//
-// 	Autores: 	M. Alejandro García Domínguez (AlejandroGarcia@wanadoo.es)
-//						Antonio Berrocal Piris
-//
-//	Descripción: Clase MChat.
-//
-//
-//----------------------------------------------------------------------------
+/**
+  
+  Copyright (c) 2000-2014 . All Rights Reserved.
+  @Autor: Alejandro García Domínguez alejandro.garcia.dominguez@gmail.com   alejandro@iacobus.com
+         Antonio Berrocal Piris antonioberrocalpiris@gmail.com
+ 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
 
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations 
+  */             
 
 package iacobus.mchat;
 
@@ -63,12 +65,12 @@ import iaik.security.provider.IAIK;
 
 
 /**
- * 	<b>Una Interfaz para MChat, con soporte de
+ * 	<b>Una Interfaz para mChat, con soporte de
  *  internacionalización. Idiomas soportados por ahora: Español e Inglés.</b>
  *  Implementa las interfaces I18n y java.awt.event.ActionListener.
  */
 
-public class MChat implements I18n
+public class mChat implements I18n
 {
 
   /** Sesión Multicast */
@@ -222,7 +224,7 @@ public class MChat implements I18n
   * Constructor genérico para un applet y una aplicación.
 	* @param unApplet El applet en el navegador o null para una aplicación.
 	*/
-	public MChat(javax.swing.JApplet unApplet) {
+	public mChat(javax.swing.JApplet unApplet) {
 		 super();
 		 jApplet = unApplet;
 		 String vers = System.getProperty("java.version");
@@ -407,7 +409,7 @@ public class MChat implements I18n
 			try {
 
 				jFrame = new javax.swing.JFrame();
-				jFrame.setName("MChat");
+				jFrame.setName("mChat");
 				jFrame.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 				jFrame.setTitle(iString(TITULO_APLICACION));
 				jFrame.setResizable(true);
@@ -460,7 +462,7 @@ public class MChat implements I18n
  {
 
         //Obtener la imágen...
-        URL url = MChat.class.getResource("images/" + fileName);
+        URL url = mChat.class.getResource("images/" + fileName);
         Image img = getJFrame().getToolkit().createImage(url);
 
         /*MediaTracker tracker = new MediaTracker(cmp);
@@ -1599,7 +1601,7 @@ public class MChat implements I18n
   {
       this.clave = clave;
       this.nickName = nickname;
-      this.getJFrame().setTitle("PTMF: MChat - "+sIPMulticast+":"+ttlSesion);
+      this.getJFrame().setTitle("PTMF: mChat - "+sIPMulticast+":"+ttlSesion);
       this.getJLabelInformacion().setText("Iniciando sesión multicast a "+sIPMulticast+":"+ttlSesion);
       getJTextPaneSuperior().setText("");
       insertarPresentacion();
@@ -1656,7 +1658,7 @@ public class MChat implements I18n
 	* El método main de la aplicación.
 	*/
 	public static void main(String s[]) {
-		MChat chat = new MChat(null);
+		mChat chat = new mChat(null);
 	}
 
 

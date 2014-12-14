@@ -1,19 +1,21 @@
-//============================================================================
-//
-//	Copyright (c) 1999 . All Rights Reserved.
-//
-//----------------------------------------------------------------------------
-//
-//	Fichero: FileRecepcion.java  1.0 30/04/00
-//
-// 	Autores: 	M. Alejandro García Domínguez (AlejandroGarcia@wanadoo.es)
-//						Antonio Berrocal Piris
-//
-//	Descripción: Clase FileRecepcion.
-//
-//
-//----------------------------------------------------------------------------
+/**
+  Fichero: FileRecepcion.java  1.0 30/04/00
+  Copyright (c) 2000-2014 . All Rights Reserved.
+  Autor: Alejandro García Domínguez alejandro.garcia.dominguez@gmail.com   alejandro@iacobus.com
+         Antonio Berrocal Piris antonioberrocalpiris@gmail.com
+ 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
 
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+*/
 
 
 package iacobus.mftp;
@@ -174,7 +176,7 @@ import java.util.TreeMap;
       if(this.file.exists())
       {
         if(!this.file.delete())
-            throw new IOException("No se ha podido borrar el fichero "+sFileName+newline+"1. Compruebe si tiene privilegios."+newline+"2.Compruebe que el fichero no está siendo usado por otra aplicación.");
+            throw new IOException("The file could not deleted "+sFileName+newline+"1. Check you hace privilegies."+newline+"2.Check the file is not used by another application.");
 
       }
 
@@ -182,7 +184,7 @@ import java.util.TreeMap;
       if(!this.file.createNewFile())
       {
           //mensajeErrorEscritura();
-          throw new IOException("No se ha podido CREAR el fichero "+sFileName+newline+"1. Compruebe si tiene privilegios."+newline+"2.Compruebe que el fichero no está siendo usado por otra aplicación.");
+          throw new IOException("The file could not be closed "+sFileName+newline+"1. Check you hace privilegies."+newline+"2.Check the file is not used by another application.");
 
       }
 
@@ -190,14 +192,14 @@ import java.util.TreeMap;
       if(!this.file.canWrite())
       {
           //mensajeErrorEscritura();
-          throw new IOException("No se puede ESCRIBIR en el fichero "+sFileName+newline+"1. Compruebe si tiene privilegios."+newline+"2.Compruebe que el fichero no está siendo usado por otra aplicación.");
+          throw new IOException("The file could not be writed  "+sFileName+newline+"1. Check you hace privilegies."+newline+"2.Check the file is not used by another application.");
       }
 
       //Flujo de salida al fichero...
       this.fileOutputStream = new FileOutputStream(file);
 
      //Iniciar JDialogRecepcion
-     this.jDialogRecepcion = new JDialogRecepcion(this,null,"Recepción Multicast... "+this.id_socketIn.getID_Socket(),false,sFileName,lFileSize,null,this.id_socketIn.getID_Socket());
+     this.jDialogRecepcion = new JDialogRecepcion(this,null,"Receiving "+this.id_socketIn.getID_Socket(),false,sFileName,lFileSize,null,this.id_socketIn.getID_Socket());
      this.jDialogRecepcion.show();
 
      try
@@ -205,7 +207,7 @@ import java.util.TreeMap;
       if(protocoloFTPMulticast.getModo() == PTMF.PTMF_FIABLE_RETRASADO
       || protocoloFTPMulticast.getModo() == PTMF.PTMF_FIABLE)
       {
-         MFtp.getFTP().insertRecepcionString("Iniciando la recepción... de "+sFileName,null);
+         mFtp.getFTP().insertRecepcionString("Initializing reception of "+sFileName,null);
 
          lBytesLeidos = 0;
          byte[] bytes = new byte[1024*2];
@@ -290,7 +292,7 @@ import java.util.TreeMap;
              {
               if (!MFTPfile.delete())
               {
-                this.protocoloFTPMulticast.getFTP().error("No se ha podido eliminar el fichero: "+sFileName+newline+"1. Compruebe si tiene privilegios suficientes."+newline+"2.Compruebe que el fichero no está siendo usado por otra aplicación.");
+                this.protocoloFTPMulticast.getFTP().error("The file can't be deleted: "+sFileName+newline+"1. Check you hace privilegies."+newline+"2.Check the file is not used by another application.");
                  //Eliminar temporal
                   this.file.delete();
                   this.file=null;
@@ -299,7 +301,7 @@ import java.util.TreeMap;
 
                if(!file.renameTo(MFTPfile))
                {
-                this.protocoloFTPMulticast.getFTP().error("No se ha podido renombrar a:"+sFileName+newline+"1. Compruebe si tiene privilegios suficientes."+newline+"2.Compruebe que el fichero no está siendo usado por otra aplicación.");
+                this.protocoloFTPMulticast.getFTP().error("The file can't be renamed:"+sFileName+newline+"1. Check you hace privilegies."+newline+"2.Check the file is not used by another application.");
                 //Eliminar temporal
                 this.file.delete();
                   this.file=null;
@@ -308,7 +310,7 @@ import java.util.TreeMap;
            }
            else if(!file.renameTo(MFTPfile))
            {
-             this.protocoloFTPMulticast.getFTP().error("No se ha podido renombrar a:"+sFileName+newline+"1. Compruebe si tiene privilegios suficientes."+newline+"2.Compruebe que el fichero no está siendo usado por otra aplicación.");
+             this.protocoloFTPMulticast.getFTP().error("The file can't be renamed:"+sFileName+newline+"1. Check you hace privilegies."+newline+"2.Check the file is not used by another application.");
               //Eliminar temporal
               this.file.delete();
               this.file=null;
@@ -328,13 +330,13 @@ import java.util.TreeMap;
   */
   private void tirarBytes()throws IOException
   {
-    MFtp ftp = MFtp.getFTP();
+    mFtp ftp = mFtp.getFTP();
 
     try
     {
          this.file = new File("nulo");
 
-         ftp.insertRecepcionString("Transferencia ya iniciada. Esperando siguiente para sincronizacion...","icono_informacion" );
+         ftp.insertRecepcionString("Transfer just initiated. Waiting next transmission to join...","icono_informacion" );
          while(protocoloFTPMulticast.esActiva() && (this.file!=null))
          {
 
@@ -375,11 +377,11 @@ import java.util.TreeMap;
       { if (mensajeFileExists())
         {
           if(!this.file.delete())
-            throw new IOException("No se ha podido borrar el fichero "+sFileName+newline+"1. Compruebe si tiene privilegios."+newline+"2.Compruebe que el fichero no está siendo usado por otra aplicación.");
+            throw new IOException("The file can't be deleted "+sFileName+newline+"1. Check you hace privilegies."+newline+"2.Check the file is not used by another application.");
         }
         else
         {
-            throw new IOException("El fichero "+sFileName+" ya existe. NO SOBREESCRIBIR.");
+            throw new IOException("The file "+sFileName+" exist. Could not be overwrited.");
         }
       }
 
@@ -387,7 +389,7 @@ import java.util.TreeMap;
       if(!this.file.createNewFile())
       {
           //mensajeErrorEscritura();
-          throw new IOException("No se ha podido CREAR el fichero "+sFileName+newline+"1. Compruebe si tiene privilegios."+newline+"2.Compruebe que el fichero no está siendo usado por otra aplicación.");
+          throw new IOException("The file can't be created "+sFileName+newline+"1. Check you hace privilegies."+newline+"2.Check the file is not used by another application.");
 
       }
 
@@ -395,14 +397,14 @@ import java.util.TreeMap;
       if(!this.file.canWrite())
       {
           //mensajeErrorEscritura();
-          throw new IOException("No se puede ESCRIBIR en el fichero "+sFileName+newline+"1. Compruebe si tiene privilegios."+newline+"2.Compruebe que el fichero no está siendo usado por otra aplicación.");
+          throw new IOException("The file can't be writed "+sFileName+newline+"1. Check you hace privilegies."+newline+"2.Check the file is not used by another application.");
       }
 
       //Flujo de salida al fichero...
       this.fileOutputStream = new FileOutputStream(file);
 
      //Iniciar JDialogRecepcion
-     this.jDialogRecepcion = new JDialogRecepcion(this,null,"Recepción Multicast...",false,sFileName,lFileSize,null,this.id_socket);
+     this.jDialogRecepcion = new JDialogRecepcion(this,null,"Receiving ",false,sFileName,lFileSize,null,this.id_socket);
      this.jDialogRecepcion.show();
 
    }
@@ -460,8 +462,8 @@ import java.util.TreeMap;
       long lMinutos = 0;
       long lSegundos = 0;
       long lTiempo = this.jDialogRecepcion.getlTiempo();
-      String mensaje = "Transferencia Finalizada. Recibido "+this.jDialogRecepcion.getlBytesRecibidos()+" bytes en ";
-      MFtp ftp = MFtp.getFTP();
+      String mensaje = "Transfer End. Received "+this.jDialogRecepcion.getlBytesRecibidos()+" bytes in ";
+      mFtp ftp = mFtp.getFTP();
 
       if (lTiempo > 1000)
       {
@@ -493,20 +495,20 @@ import java.util.TreeMap;
       {
         int iParteEntera = (int)(dKB_seg );
         int iParteDecimal = (int)(dKB_seg *100)%100;
-        ftp.insertRecepcionString(mensaje+" Ratio Transferencia: "+iParteEntera+"."+iParteDecimal+" KB/Seg","icono_tarea");
+        ftp.insertRecepcionString(mensaje+" Transfer rate: "+iParteEntera+"."+iParteDecimal+" KB/Seg","icono_tarea");
       }
       else
       {
         int i = (int)(dKB_seg * 100);
-        ftp.insertRecepcionString(mensaje+" Ratio Transferencia: 0."+i+" KB/Seg","icono_tarea");
+        ftp.insertRecepcionString(mensaje+" Transfer rate: 0."+i+" KB/Seg","icono_tarea");
       }
 
  }
 
  //==========================================================================
  /**
-  * Recibir Identificador de MFtp PTMF v1.0
-  * @return true si se ha recibido el Identificador de MFtp, false en caso contrario
+  * Recibir Identificador de mFtp PTMF v1.0
+  * @return true si se ha recibido el Identificador de mFtp, false en caso contrario
   */
  private boolean receiveIDFTPMulticast() throws IOException
  {
@@ -528,7 +530,7 @@ import java.util.TreeMap;
 
       bOK = true;
 
-    Log.log("Iniciando la recepción MFtp...","");
+    Log.log("Iniciando la recepción mFtp...","");
 
    }
     finally{ return bOK;}
@@ -563,7 +565,7 @@ import java.util.TreeMap;
         sFileName = new String(bytes);
 
 
-        Log.log("Recibiendo fichero: "+sFileName+" del emisor: "+this.id_socketIn.getID_Socket(),"");
+        Log.log("Receiving file: "+sFileName+" from sender: "+this.id_socketIn.getID_Socket(),"");
    }
 
   finally{ return sFileName;}
@@ -586,7 +588,7 @@ import java.util.TreeMap;
 
         lFileSize = buf.getLong(0);
 
-        Log.log("Tamaño: "+lFileSize+newline,"");
+        Log.log("Size: "+lFileSize+newline,"");
    }
    finally{ return lFileSize;}
  }
@@ -646,9 +648,9 @@ import java.util.TreeMap;
 
    //==========================================================================
  /**
-  * Comprueba Identificador de MFtp PTMF v1.0
+  * Comprueba Identificador de mFtp PTMF v1.0
   * @param buf Un objeto Buffer con los datos leidos.
-  * @return true si se ha recibido el Identificador de MFtp, false en caso contrario
+  * @return true si se ha recibido el Identificador de mFtp, false en caso contrario
   */
  public static boolean parseIDFTPMulticast(Buffer buf) throws IOException
  {
@@ -764,8 +766,8 @@ import java.util.TreeMap;
   boolean b = false;
   try
   {
-    int iOpcion =  JOptionPane.showConfirmDialog(null,"El fichero \""+sFileName+"\" ya existe."+newline+"¿Desea sobreescribir el fichero existente?",
-				    "Sobreescribir", JOptionPane.YES_NO_OPTION);
+    int iOpcion =  JOptionPane.showConfirmDialog(null,"The file \""+sFileName+"\" exist."+newline+"¿Do you want overwrite it?",
+				    "Overwrite", JOptionPane.YES_NO_OPTION);
     if(iOpcion == JOptionPane.YES_OPTION)
       b = true;
 
@@ -788,6 +790,6 @@ import java.util.TreeMap;
     this.file.delete();
 
    this.file = null;
-  MFtp.getFTP().insertRecepcionString("Recepción cancelada por el usuario.","icono_informacion");
+  mFtp.getFTP().insertRecepcionString("Reception canceled by the user.","icono_informacion");
  }
  }

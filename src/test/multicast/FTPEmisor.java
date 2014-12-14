@@ -200,7 +200,7 @@ public class FTPEmisor implements
      try
      {
            //Información del fichero....
-          Log.log("Iniciando transferencia MFtp....","");
+          Log.log("Iniciando transferencia mFtp....","");
           Log.log("Tamaño del fichero: "+this.file.length()+" bytes","");
 
           //Enviar IDFTP, Tamaño y Nombre del Fichero.....
@@ -288,7 +288,7 @@ public class FTPEmisor implements
 
  //==========================================================================
  /**
-  * Enviar Identificador de MFtp PTMF v1.0, Enviar Tamaño del Fichero,
+  * Enviar Identificador de mFtp PTMF v1.0, Enviar Tamaño del Fichero,
   * Enviar Nombre del Fichero.....
   */
  private void sendCabeceraFTP(long lSize,String sFileName) throws IOException

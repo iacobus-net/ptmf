@@ -1,11 +1,22 @@
-/*
- * I18n.java	1.0 10/08/99
- *
- * Copyright (c) 1999 . All Rights Reserved.
- *
- * Autor: M. Alejandro García Domínguez (AlejandroGarcia@wanadoo.es)
- *
- */
+/**
+  Fichero: I18n.java	1.0 10/08/99
+
+  Copyright (c) 2000-2014 . All Rights Reserved.
+  @Autor: Alejandro García Domínguez alejandro.garcia.dominguez@gmail.com   alejandro@iacobus.com
+         Antonio Berrocal Piris antonioberrocalpiris@gmail.com
+ 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+*/
 
 package iacobus.mchat;
 
@@ -20,7 +31,7 @@ interface I18n
 {
 	String[] ADVERTENCIA_SWING_VM = {"!! ADVERTENCIA: Swing necesita una máquina virtual igual o superior a 1.1.2 !!"
 																  ,"!!!WARNING: Swing must be run with a 1.1.2 or higher version VM!!!"};
-	String[] TITULO_APLICACION = {"MChat v1.0","MChat v1.0"};
+	String[] TITULO_APLICACION = {"mChat v1.0","mChat v1.0"};
 
 	String[] MENUS = {"Menús","Menus"};
 
@@ -60,8 +71,8 @@ interface I18n
 
  	//About
  String[] ABOUT = {
-   "MChat Versión 1.0 Copyright 2000\nAutores:\nM.Alejandro Garcia Dominguez (AlejandroGarcia@wanadoo.es)\nAntonio Berrocal Piris (AntonioBP@wanadoo.es)",
-   "MChat Versión 1.0 Copyright 2000\nAutores:\nM.Alejandro Garcia Dominguez(AlejandroGarcia@wanadoo.es)\nAntonio Berrocal Piris (AntonioBP@wanadoo.es)"};
+   "mChat Versión 1.0 Copyright 2000\nAutores:\nM.Alejandro Garcia Dominguez (AlejandroGarcia@wanadoo.es)\nAntonio Berrocal Piris (AntonioBP@wanadoo.es)",
+   "mChat Versión 1.0 Copyright 2000\nAutores:\nM.Alejandro Garcia Dominguez(AlejandroGarcia@wanadoo.es)\nAntonio Berrocal Piris (AntonioBP@wanadoo.es)"};
 
  	//About
  String[] PRESENTACION = {

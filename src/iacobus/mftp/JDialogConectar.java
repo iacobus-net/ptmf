@@ -1,17 +1,21 @@
-//============================================================================
-//
-//	Copyright (c) 1999 . All Rights Reserved.
-//
-//----------------------------------------------------------------------------
-//
-//	Fichero: JDialogConectar.java  1.0 1/12/99
-//
-// 	Autores: M. Alejandro García Domínguez (malejandrogarcia@wanadoo.es)
-//		 Antonio Berrocal Piris
-//
-//	Descripción: Clase JDialogConectar.
-//
-//
+/**
+  Fichero: JDialogConectar.java  1.0 1/12/99
+  Copyright (c) 2000-2014 . All Rights Reserved.
+  @Autor: Alejandro García Domínguez alejandro.garcia.dominguez@gmail.com   alejandro@iacobus.com
+         Antonio Berrocal Piris antonioberrocalpiris@gmail.com
+ 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+*/
 //----------------------------------------------------------------------------
 
 
@@ -35,8 +39,8 @@ import java.net.InetAddress;
  public class JDialogConectar extends JDialog
  {
 
-  /** Clase MFtp */
-  //MFtp ftpMulticast = null;
+  /** Clase mFtp */
+  //mFtp ftpMulticast = null;
 
   /** Dirección IP MUlticast */
   private Address addressIPMulticast = null;
@@ -337,7 +341,7 @@ import java.net.InetAddress;
         panel4.setLayout(new BoxLayout(panel4,BoxLayout.X_AXIS));
         //panel4.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
         panel4.setBorder(new TitledBorder(new CompoundBorder(BorderFactory.createEtchedBorder(),
-                BorderFactory.createEmptyBorder(0,0,0,0)),"Modo de actuación MFtp:"));
+                BorderFactory.createEmptyBorder(0,0,0,0)),"mFtp mode:"));
 
         panel4.setAlignmentX(Component.LEFT_ALIGNMENT);
 
@@ -389,7 +393,7 @@ import java.net.InetAddress;
         panel5 = new JPanel(true);
         panel5.setLayout(new BoxLayout(panel5,BoxLayout.Y_AXIS));
         panel5.setBorder(new TitledBorder(new CompoundBorder(BorderFactory.createEtchedBorder(),
-                BorderFactory.createEmptyBorder(0,0,0,0)),"Canal seguro:"));
+                BorderFactory.createEmptyBorder(0,0,0,0)),"Secure channel:"));
 
         /*panel5.setBorder(new CompoundBorder(BorderFactory.createEtchedBorder(),
                 BorderFactory.createEmptyBorder(0,3,0,0)));
@@ -417,12 +421,12 @@ import java.net.InetAddress;
         panel6.setLayout(new BoxLayout(panel6,BoxLayout.X_AXIS));
         //panel4.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
         panel6.setBorder(new TitledBorder(new CompoundBorder(BorderFactory.createEtchedBorder(),
-                BorderFactory.createEmptyBorder(0,0,0,0)),"Ratio de Transmisión:"));
+                BorderFactory.createEmptyBorder(0,0,0,0)),"Transmission Rate:"));
 
         panel6.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         // Añadir
-        panel6.add(new JLabel("   Ratio Transmisión en Kbits/seg:      "));
+        panel6.add(new JLabel("   Transmission rate Kbits/seg:      "));
         panel6.add(getjComboBoxRatio());
        }
 
@@ -509,7 +513,7 @@ import java.net.InetAddress;
    {
       if (jButtonConectar == null)
       {
-         jButtonConectar = new JButton("Conectar");
+         jButtonConectar = new JButton("Connect");
          jButtonConectar.addActionListener(getactionListenerConectar());
       }
 
@@ -527,7 +531,7 @@ import java.net.InetAddress;
    {
       if (jButtonCancelar == null)
       {
-        jButtonCancelar = new JButton("Cancelar");
+        jButtonCancelar = new JButton("Cancel");
         jButtonCancelar.addActionListener(getactionListenerCancelar());
       }
 
@@ -559,7 +563,7 @@ import java.net.InetAddress;
    {
       if (jLabelPuerto == null)
       {
-         jLabelPuerto = new JLabel("Puerto Multicast:");
+         jLabelPuerto = new JLabel("Multicast Port:");
          jLabelPuerto.setAlignmentX(Component.LEFT_ALIGNMENT);
       }
        return jLabelPuerto;
@@ -574,7 +578,7 @@ import java.net.InetAddress;
    {
       if (jLabelTTLSesion == null)
       {
-        jLabelTTLSesion = new JLabel("TTL Sesión:");
+        jLabelTTLSesion = new JLabel("TTL Sesion:");
         jLabelTTLSesion.setAlignmentX(Component.LEFT_ALIGNMENT);
       }
        return jLabelTTLSesion;
@@ -590,7 +594,7 @@ import java.net.InetAddress;
    {
       if (jLabelClave == null)
       {
-        jLabelClave = new JLabel("Clave RC2:");
+        jLabelClave = new JLabel("Key RC2:");
       }
        return jLabelClave;
    }
@@ -606,7 +610,7 @@ import java.net.InetAddress;
       if (jTextFieldIPMulticast  == null)
       {
         jTextFieldIPMulticast = new JTextField("224.2.2.2");
-        jTextFieldIPMulticast.setToolTipText("Una dirección IP Multicast p.ej: 224.2.2.2");
+        jTextFieldIPMulticast.setToolTipText("IP Multicast address i.e: 224.2.2.2");
         jTextFieldIPMulticast.setBorder(BorderFactory.createLoweredBevelBorder());
         jTextFieldIPMulticast.setPreferredSize(new Dimension(100,20));
         jTextFieldIPMulticast.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -627,7 +631,7 @@ import java.net.InetAddress;
          jTextFieldPuerto.setBorder(BorderFactory.createLoweredBevelBorder());
          jTextFieldPuerto.setAlignmentX(Component.LEFT_ALIGNMENT);
          jTextFieldPuerto.setPreferredSize(new Dimension(50,20));
-         jTextFieldPuerto.setToolTipText("Puerto Multicast");
+         jTextFieldPuerto.setToolTipText("Multicast Port");
       }
        return jTextFieldPuerto;
    }
@@ -647,7 +651,7 @@ import java.net.InetAddress;
          jTextFieldInterfaz.setEnabled(false);
          jTextFieldInterfaz.setBackground(Color.lightGray);
          jTextFieldInterfaz.setPreferredSize(new Dimension(150,20));
-         jTextFieldInterfaz.setToolTipText("Dirección IP de la Interfaz de salida para multihosts.");
+         jTextFieldInterfaz.setToolTipText("Interface IP address to use for multihome");
       }
        return jTextFieldInterfaz;
    }
@@ -664,7 +668,7 @@ import java.net.InetAddress;
       if (jPasswordFieldClave == null)
       {
         jPasswordFieldClave = new JPasswordField(20);
-        jPasswordFieldClave.setToolTipText("Texto para la generación de una clave para encriptar con RC2");
+        jPasswordFieldClave.setToolTipText("Text for generate rc2 key encryption");
         jPasswordFieldClave.setBorder(BorderFactory.createLoweredBevelBorder());
         jPasswordFieldClave.setAlignmentX(Component.LEFT_ALIGNMENT);
         jPasswordFieldClave.setPreferredSize(new Dimension(150,20));
@@ -693,7 +697,7 @@ import java.net.InetAddress;
           jComboBoxTTLSesion.setEditable(false);
           jComboBoxTTLSesion.setSelectedIndex(1);
           jComboBoxTTLSesion.setPreferredSize(new Dimension(30,20));
-          jComboBoxTTLSesion.setToolTipText("TTL utilizado en la sesión Multicast. Por defecto es 8.");
+          jComboBoxTTLSesion.setToolTipText("TTL to use on Multicast sesion. Default is 8.");
 
       }
        return jComboBoxTTLSesion ;
@@ -731,7 +735,7 @@ import java.net.InetAddress;
           jComboBoxRatio.setSelectedIndex(0);
           jComboBoxRatio.setEnabled(false);
           jComboBoxRatio.setPreferredSize(new Dimension(30,20));
-          jComboBoxRatio.setToolTipText("Ratio de Transferencia Multicast. SOLO EN MODO EMISOR");
+          jComboBoxRatio.setToolTipText("Multicast transfer rate. Only sender mode");
 
       }
        return jComboBoxRatio ;
@@ -746,8 +750,8 @@ import java.net.InetAddress;
    {
       if (jChekBoxInterfaz == null)
       {
-        jChekBoxInterfaz = new JCheckBox("Interfaz de salida");
-        jChekBoxInterfaz.setToolTipText("Activar/Desactivar Interfaz de salida");
+        jChekBoxInterfaz = new JCheckBox("Sender interface");
+        jChekBoxInterfaz.setToolTipText("Enable/disable sender interface ");
         jChekBoxInterfaz.setPreferredSize(new Dimension(130,20));
         jChekBoxInterfaz.addItemListener(getitemListenerCheckBox());
 
@@ -764,8 +768,8 @@ import java.net.InetAddress;
    {
       if (jChekBoxSSL == null)
       {
-        jChekBoxSSL = new JCheckBox("Canal Multicast Seguro (RC2)");
-        jChekBoxSSL.setToolTipText("Activar/Desactivar Canal Multicast Seguro");
+        jChekBoxSSL = new JCheckBox("Multicast secure (RC2)");
+        jChekBoxSSL.setToolTipText("Enable/disable Multicast secure channel");
         jChekBoxSSL.setAlignmentX(Component.LEFT_ALIGNMENT);
         jChekBoxSSL.addItemListener(getitemListenerCheckBox());
 
@@ -782,8 +786,8 @@ import java.net.InetAddress;
    {
       if (jRadioButtonFiable  == null)
       {
-        jRadioButtonFiable = new JRadioButton("Fiable",true);
-        jRadioButtonFiable.setToolTipText("Modo FIABLE de PTMF");
+        jRadioButtonFiable = new JRadioButton("Reliable",true);
+        jRadioButtonFiable.setToolTipText("PTMF Reliable");
         jRadioButtonFiable.setPreferredSize(new Dimension(100,20));
       }
        return jRadioButtonFiable ;
@@ -798,8 +802,8 @@ import java.net.InetAddress;
    {
       if (jRadioButtonFiableRetrasado  == null)
       {
-        jRadioButtonFiableRetrasado = new JRadioButton("Fiable Retrasado",false);
-        jRadioButtonFiableRetrasado.setToolTipText("Modo FIABLE RETRASADO de PTMF");
+        jRadioButtonFiableRetrasado = new JRadioButton("Late Reliable",false);
+        jRadioButtonFiableRetrasado.setToolTipText("PTMF Late Reliable mode");
         jRadioButtonFiableRetrasado.setPreferredSize(new Dimension(100,20));
       }
 
@@ -815,8 +819,8 @@ import java.net.InetAddress;
    {
       if (jRadioButtonNoFiable  == null)
       {
-        jRadioButtonNoFiable = new JRadioButton("No Fiable",false);
-        jRadioButtonNoFiable.setToolTipText("Modo NO FIABLE de PTMF");
+        jRadioButtonNoFiable = new JRadioButton("No Reliable",false);
+        jRadioButtonNoFiable.setToolTipText("PTMF No reliable mode");
         jRadioButtonNoFiable.setPreferredSize(new Dimension(100,20));
       }
 
@@ -832,10 +836,10 @@ import java.net.InetAddress;
    {
       if (jRadioButtonEmisor  == null)
       {
-        jRadioButtonEmisor = new JRadioButton("Actuar como \"Emisor\"",false);
-        jRadioButtonEmisor.setToolTipText("Modo Emisor en MFtp");
+        jRadioButtonEmisor = new JRadioButton("\"Sender\"",false);
+        jRadioButtonEmisor.setToolTipText("mFtp sender mode ");
         jRadioButtonEmisor.setPreferredSize(new Dimension(100,20));
-        jRadioButtonEmisor.setActionCommand("Emisor");
+        jRadioButtonEmisor.setActionCommand("Sender");
         jRadioButtonEmisor.addActionListener(getactionListenerEmisorReceptor());
       }
 
@@ -851,10 +855,10 @@ import java.net.InetAddress;
    {
       if (jRadioButtonReceptor  == null)
       {
-        jRadioButtonReceptor = new JRadioButton("Actuar como \"Receptor\"",true);
-        jRadioButtonReceptor.setToolTipText("Modo Receptor en MFtp");
+        jRadioButtonReceptor = new JRadioButton("\"Receiver\"",true);
+        jRadioButtonReceptor.setToolTipText("mFtp receiver mode");
         jRadioButtonReceptor.setPreferredSize(new Dimension(100,20));
-        jRadioButtonReceptor.setActionCommand("Receptor");
+        jRadioButtonReceptor.setActionCommand("Receiver");
         jRadioButtonReceptor.addActionListener(getactionListenerEmisorReceptor());
       }
 
@@ -987,38 +991,34 @@ import java.net.InetAddress;
     String stringPuerto = null;
 
     final String[] mensajeErrorIPMulticast= {
-    "Dirección IP Multicast incorrecta.",
-    "Una dirección IP Multicast es una dirección IP de clase D.",
-    "Las direcciones IP de clase D se encuentran en el rango",
-    "224.0.0.0 a 239.255.255.255 ",
+    "Incorrect IP Multicast Address.",
+    "An IPv4 Multicast is a class D address.",
+    "The range must be between",
+    "224.0.0.0 to 239.255.255.255 ",
     " ",
-    "La dirección siguiente: p.ej. \"224.2.2.2\" es una dirección IP Multicast válida."
+    "For example \"224.2.2.2\" "
     };
 
     final String[] mensajeErrorIPInterfaz= {
-    "Dirección IP de la interfaz de salida incorrecta.",
+    "Incorrect IP address for sender interface ",
     " ",
-    "Debe de especificar una dirección IP de una interfaz de salida",
-    "disponible en su ordenador."
+    "PLease, especify an ip address for the interface available on your computer"
+    
     };
 
     final String[] mensajeErrorClave= {
-    "Debe de especificar algún texto en el campo clave.",
-    "Este texto se utilizará para generar una clave con la ",
-    "que se codificará la conexión Multicast utilizando el ",
-    "criptosistema RC2.",
+    "Please, introduce any text",
+    "This text will be used to generate a key. This key will be used on RC2 cryptosystem",
     "",
-    "Todos los usuarios que deseen comunicarse de forma segura",
-    "deberán de especificar la misma clave."
+    "All user must use the same text to communicate securitely"
     };
 
     final String[] mensajeErrorFileName ={
-    "Debe de especificar el fichero que desee ",
-    "transmitir en la sesión multicast. "
+    "Please, select the file to be tramsited."
     };
 
     final String[] mensajeErrorPuerto = {
-    "Debe de especificar un Puerto Multicast entre 0 y 65535, ambos inclusive."
+    "The multicast port must be between 0 and 65535, both inclusive."
     };
     public void actionPerformed(ActionEvent e)
     {
@@ -1123,7 +1123,7 @@ import java.net.InetAddress;
       setVisible(false);
 
       //Conectar......
-      MFtp.getFTP().conectar(getIPMulticast(),getIPInterfaz(),getTTLSesion(),
+      mFtp.getFTP().conectar(getIPMulticast(),getIPInterfaz(),getTTLSesion(),
        getModo(),lRatio,getClaveRC2(),getjRadioButtonEmisor().isSelected());
     }
 
@@ -1245,7 +1245,7 @@ import java.net.InetAddress;
    JFrame frame = new JFrame("Prueba de Diálogo");
    frame.show();
 
-   JDialogConectar conectar = new JDialogConectar(frame,"Conexión Multicast...",true);
+   JDialogConectar conectar = new JDialogConectar(frame,"Multicast connection...",true);
    conectar.show();
 
   }

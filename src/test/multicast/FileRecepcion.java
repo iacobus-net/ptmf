@@ -534,8 +534,8 @@ import java.util.TreeMap;
 
  //==========================================================================
  /**
-  * Recibir Identificador de MFtp PTMF v1.0
-  * @return true si se ha recibido el Identificador de MFtp, false en caso contrario
+  * Recibir Identificador de mFtp PTMF v1.0
+  * @return true si se ha recibido el Identificador de mFtp, false en caso contrario
   */
  private boolean receiveIDFTPMulticast() throws IOException
  {
@@ -560,7 +560,7 @@ import java.util.TreeMap;
     System.out.println("");
     System.out.println("");
     System.out.println("");
-    Log.log(receptorFTPMulticast.mn,"Iniciando la recepcion MFtp...");
+    Log.log(receptorFTPMulticast.mn,"Iniciando la recepcion mFtp...");
     //System.out.println("--------------------------------------");
 
    }
@@ -680,9 +680,9 @@ import java.util.TreeMap;
 
    //==========================================================================
  /**
-  * Comprueba Identificador de MFtp PTMF v1.0
+  * Comprueba Identificador de mFtp PTMF v1.0
   * @param buf Un objeto Buffer con los datos leidos.
-  * @return true si se ha recibido el Identificador de MFtp, false en caso contrario
+  * @return true si se ha recibido el Identificador de mFtp, false en caso contrario
   */
  public static boolean parseIDFTPMulticast(Buffer buf) throws IOException
  {

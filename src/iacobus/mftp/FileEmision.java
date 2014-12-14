@@ -1,19 +1,21 @@
-//============================================================================
-//
-//	Copyright (c) 1999 . All Rights Reserved.
-//
-//----------------------------------------------------------------------------
-//
-//	Fichero: FileEmision.java  1.0 30/04/00
-//
-// 	Autores: 	M. Alejandro García Domínguez (AlejandroGarcia@wanadoo.es)
-//						Antonio Berrocal Piris
-//
-//	Descripción: Clase FileEmision.
-//
-//
-//----------------------------------------------------------------------------
+/**
+  Fichero: FileEmision.java  1.0 30/04/00
+  Copyright (c) 2000-2014 . All Rights Reserved.
+  Autor: Alejandro García Domínguez alejandro.garcia.dominguez@gmail.com   alejandro@iacobus.com
+         Antonio Berrocal Piris antonioberrocalpiris@gmail.com
+ 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
 
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+*/
 
 
 package iacobus.mftp;
@@ -74,24 +76,24 @@ import java.util.TreeMap;
         out = this.protocoloFTPMulticast.getSocket().getMulticastOutputStream();
         if(out == null)
         {
-          throw new IOException("El Flujo de Salida Multicast es NULL.\n");
+          throw new IOException("Multicast sender flow is NULL.\n");
         }
       }
 
       if(file == null)
       {
-        throw new IOException("El nombre del fichero es NULL.\n");
+        throw new IOException("File name is NULL.\n");
       }
 
 
       if(!this.file.exists())
       {
-        throw new IOException("El sistema no reconoce "+this.file.getName()+" \ncomo un fichero válido");
+        throw new IOException("The system is not locating "+this.file.getName()+" \n as a valid file");
       }
 
       if(!this.file.canRead())
       {
-        throw new IOException("El fichero "+this.file.getName()+" \nno puede ser leído.\nVerifique que tiene permiso de lectura.");
+        throw new IOException("The file "+this.file.getName()+" \n can't be reader.\nCheck read permission");
       }
 
 
@@ -114,13 +116,13 @@ import java.util.TreeMap;
    */
    void sendFile() throws IOException
    {
-     MFtp ftp = MFtp.getFTP();
+     mFtp ftp = mFtp.getFTP();
 
      try
      {
           //Información del fichero....
-          ftp.insertTransmisionString("Iniciando transferencia MFtp....","icono_informacion");
-          ftp.insertTransmisionString("Tamaño del fichero: "+this.file.length()+" bytes",null);
+          ftp.insertTransmisionString("Init multicast transfer....","icono_informacion");
+          ftp.insertTransmisionString("File size: "+this.file.length()+" bytes",null);
 
           if(!this.protocoloFTPMulticast.esActiva())
             return;
@@ -163,7 +165,7 @@ import java.util.TreeMap;
               {
                  file = null;
 
-                 ftp.insertTransmisionString("Transferencia cancelada por el usuario.","icono_informacion");
+                 ftp.insertTransmisionString("Transfer canceled by user.","icono_informacion");
                  return;
               }
           }
@@ -172,7 +174,7 @@ import java.util.TreeMap;
           long lMinutos = 0;
           long lSegundos = 0;
 
-          String mensaje = "Transmitido "+lBytesTransmitidos+" bytes en ";
+          String mensaje = "Transmited "+lBytesTransmitidos+" bytes in ";
 
             //Calcular Horas
             lHoras = ((lTiempo/1000)/60)/60;
@@ -230,8 +232,8 @@ import java.util.TreeMap;
       long lSegundos = 0;
       long lMSegundos = 0;
       long lTiempo = this.jDialogTransferencia.getlTiempo();
-      String mensaje = "Transmitido "+this.jDialogTransferencia.getlBytesTransmitidos()+" bytes en ";
-      MFtp ftp = MFtp.getFTP();
+      String mensaje = "Transmited "+this.jDialogTransferencia.getlBytesTransmitidos()+" bytes in ";
+      mFtp ftp = mFtp.getFTP();
 
       if (lTiempo > 1000)
       {
@@ -260,12 +262,12 @@ import java.util.TreeMap;
       {
         int iParteEntera = (int)(dKB_seg );
         int iParteDecimal = (int)(dKB_seg *100)%100;
-        ftp.insertTransmisionString(mensaje+" Ratio Transferencia: "+iParteEntera+"."+iParteDecimal+" KB/Seg","icono_tarea");
+        ftp.insertTransmisionString(mensaje+" Transfer rate "+iParteEntera+"."+iParteDecimal+" KB/Seg","icono_tarea");
       }
       else
       {
         int i = (int)(dKB_seg * 100);
-        ftp.insertTransmisionString(mensaje+" Ratio Transferencia: 0."+i+" KB/Seg","icono_tarea");
+        ftp.insertTransmisionString(mensaje+" Transfer rate: 0."+i+" KB/Seg","icono_tarea");
       }
 
   }
@@ -298,12 +300,12 @@ import java.util.TreeMap;
 
  //==========================================================================
  /**
-  * Enviar Identificador de MFtp PTMF v1.0, Enviar Tamaño del Fichero,
+  * Enviar Identificador de mFtp PTMF v1.0, Enviar Tamaño del Fichero,
   * Enviar Nombre del Fichero.....
   */
  private void sendCabeceraFTP(long lSize,String sFileName) throws IOException
  {
-      MFtp ftp = MFtp.getFTP();
+      mFtp ftp = mFtp.getFTP();
 
       Buffer buf = new Buffer(15 + sFileName.length());
 
@@ -313,13 +315,13 @@ import java.util.TreeMap;
 
       //Tamaño.-
       buf.addLong(lSize,5);
-      ftp.insertTransmisionString("Enviando tamaño: "+lSize,null);
+      ftp.insertTransmisionString("Sending size: "+lSize,null);
 
       //Nombre del Fichero.-
       buf.addShort(sFileName.length(),13);
       buf.addBytes(new Buffer(sFileName.getBytes()),0,15,sFileName.length());
 
-      ftp.insertTransmisionString("Enviando nombre del fichero: "+sFileName,null);
+      ftp.insertTransmisionString("Sending file name: "+sFileName,null);
 
     if(this.protocoloFTPMulticast.getModo() == PTMF.PTMF_FIABLE_RETRASADO
     || this.protocoloFTPMulticast.getModo() == PTMF.PTMF_FIABLE)

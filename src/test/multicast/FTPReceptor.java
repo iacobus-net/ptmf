@@ -439,8 +439,8 @@ public class FTPReceptor implements                PTMFConexionListener,
  }
 //==========================================================================
  /**
-  * Recibir Identificador de MFtp PTMF v1.0
-  * @return true si se ha recibido el Identificador de MFtp, false en caso contrario
+  * Recibir Identificador de mFtp PTMF v1.0
+  * @return true si se ha recibido el Identificador de mFtp, false en caso contrario
   */
  private boolean receiveIDFTPMulticast() throws IOException
  {
@@ -462,7 +462,7 @@ public class FTPReceptor implements                PTMFConexionListener,
 
       bOK = true;
 
-      Log.log("Iniciando la recepción MFtp...","");
+      Log.log("Iniciando la recepción mFtp...","");
 
    }
     finally{ return bOK;}

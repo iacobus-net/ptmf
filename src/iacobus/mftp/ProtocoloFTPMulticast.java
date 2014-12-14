@@ -1,19 +1,21 @@
-//============================================================================
-//
-//	Copyright (c) 1999 . All Rights Reserved.
-//
-//----------------------------------------------------------------------------
-//
-//	Fichero: ProtocoloFTPMulticast.java  1.0 1/12/99
-//
-// 	Autores: 	M. Alejandro García Domínguez (AlejandroGarcia@wanadoo.es)
-//						Antonio Berrocal Piris
-//
-//	Descripción: Clase ProtocoloFTPMulticast.
-//
-//
-//----------------------------------------------------------------------------
+/**
+  Fichero: ProtocoloFTPMulticast.java  1.0 1/12/99
+  Copyright (c) 2000-2014 . All Rights Reserved.
+  Autor: Alejandro García Domínguez alejandro.garcia.dominguez@gmail.com   alejandro@iacobus.com
+         Antonio Berrocal Piris antonioberrocalpiris@gmail.com
+ 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
 
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+*/
 package iacobus.mftp;
 
 import iacobus.ptmf.*;
@@ -152,7 +154,7 @@ public class ProtocoloFTPMulticast extends Thread
  {
    Cipher cipher = null;
    boolean bCipher = false;
-   MFtp ftp = MFtp.getFTP();
+   mFtp ftp = mFtp.getFTP();
    try
    {
      runFlag = true;
@@ -166,7 +168,7 @@ public class ProtocoloFTPMulticast extends Thread
 
         if(cipher == null)
         {
-          MFtp.getFTP().error("No se ha podido crear los objetos de Cifrado.");
+          mFtp.getFTP().error("No se ha podido crear los objetos de Cifrado.");
           return;
         }
         else
@@ -182,7 +184,7 @@ public class ProtocoloFTPMulticast extends Thread
      {
         //Log.log("MODO PTMF PTMF FIABLE /RETRASADO","");
        //Iniciar Logo...
-        MFtp.getFTP().logoOn();
+        mFtp.getFTP().logoOn();
        if(bCipher)
          socket = new SocketPTMF(dirIPMcast,dirIPInterfaz,(byte)TTLSesion,modo,this,cipher.getCipher(),cipher.getUncipher());
        else
@@ -348,7 +350,7 @@ public class ProtocoloFTPMulticast extends Thread
  /**
   * getFTP()
   */
- MFtp getFTP(){ return MFtp.getFTP();}
+ mFtp getFTP(){ return mFtp.getFTP();}
 
   //==========================================================================
  /**
@@ -411,11 +413,11 @@ public class ProtocoloFTPMulticast extends Thread
   */
   void finTransferencia(IOException ioe)
   {
-      MFtp ftp = MFtp.getFTP();
+      mFtp ftp = mFtp.getFTP();
 
       ftp.insertStringJTextPane(ftp.getJTextPaneInformacion(),ioe.getMessage(),"error");
       ftp.insertInformacionString("Conexión Cerrada");
-      MFtp.getFTP().logoOff();
+      mFtp.getFTP().logoOff();
       this.runFlag = false;
   }
 
@@ -462,7 +464,7 @@ public class ProtocoloFTPMulticast extends Thread
   */
  public void actionPTMFConexion(PTMFEventConexion evento)
  {
-    MFtp ftp = MFtp.getFTP();
+    mFtp ftp = mFtp.getFTP();
     //Log.log("actionPTMFConexion","");
     //Log.log("actionPTMFConexion: "+evento.getString(),"");
 
@@ -533,8 +535,8 @@ public class ProtocoloFTPMulticast extends Thread
     }
 
     //Información..
-    MFtp.getFTP().insertInformacionString("Esperando recepción de ficheros...");
-    MFtp.getFTP().insertRecepcionString("Esperando recepción de ficheros...","icono_informacion");
+    mFtp.getFTP().insertInformacionString("Esperando recepción de ficheros...");
+    mFtp.getFTP().insertRecepcionString("Esperando recepción de ficheros...","icono_informacion");
 
     //***** BUCLE PRINCIPAL *****
     while(this.esActiva())
@@ -599,12 +601,12 @@ public class ProtocoloFTPMulticast extends Thread
         return;
 
        // protocoloFTPMulticast.getFTP().insertStringJTextPane(" ","icono_entrada");
-       MFtp.getFTP().insertRecepcionString("Iniciando la recepción... de "+sFileName,null);
+       mFtp.getFTP().insertRecepcionString("Iniciando la recepción... de "+sFileName,null);
 
        //this.getFTP().insertStringJTextPane(" ","icono_entrada");
-       MFtp.getFTP().insertRecepcionString("Recibiendo fichero: "+sFileName+" del emisor: "+reg.getID_Socket(),null);
+       mFtp.getFTP().insertRecepcionString("Recibiendo fichero: "+sFileName+" del emisor: "+reg.getID_Socket(),null);
        //this.getFTP().insertStringJTextPane(" ","icono_entrada");
-       MFtp.getFTP().insertRecepcionString("Tamaño: "+lFileSize,null);
+       mFtp.getFTP().insertRecepcionString("Tamaño: "+lFileSize,null);
 
 
        //Nuevo FileRecepcion...
@@ -748,7 +750,7 @@ public class ProtocoloFTPMulticast extends Thread
   */
  public void actionPTMFIDGL(PTMFEventIDGL evento)
  {
-    MFtp ftp = MFtp.getFTP();
+    mFtp ftp = mFtp.getFTP();
 
     if( evento.esAñadido())
     {
@@ -757,8 +759,8 @@ public class ProtocoloFTPMulticast extends Thread
        //Añadir el IDGL al árbol de información
        ftp.getJFrame().jTreeInformacion.addIDGL(evento.getIDGL());
 
-       MFtp.getFTP().insertInformacionString("IDGLS: "+MFtp.getFTP().idgls);
-       MFtp.getFTP().insertInformacionString("Nuevo IDGL: "+evento.getIDGL());
+       mFtp.getFTP().insertInformacionString("IDGLS: "+mFtp.getFTP().idgls);
+       mFtp.getFTP().insertInformacionString("Nuevo IDGL: "+evento.getIDGL());
 
     }
     else
@@ -768,8 +770,8 @@ public class ProtocoloFTPMulticast extends Thread
       //Eliminar IDGLs del árbol
       ftp.getJFrame().jTreeInformacion.removeIDGL(evento.getIDGL());
 
-       MFtp.getFTP().insertInformacionString("IDGLS: "+MFtp.getFTP().idgls);
-       MFtp.getFTP().insertInformacionString("IDGL eliminado: "+evento.getIDGL());
+       mFtp.getFTP().insertInformacionString("IDGLS: "+mFtp.getFTP().idgls);
+       mFtp.getFTP().insertInformacionString("IDGL eliminado: "+evento.getIDGL());
     }
  }
 
@@ -780,7 +782,7 @@ public class ProtocoloFTPMulticast extends Thread
   */
  public void actionPTMFID_Socket(PTMFEventID_Socket evento)
  {
-    MFtp ftp = MFtp.getFTP();
+    mFtp ftp = mFtp.getFTP();
 
     if( evento.esAñadido())
     {
@@ -789,8 +791,8 @@ public class ProtocoloFTPMulticast extends Thread
       //Añadir el ID_Socket al árbol de información
       ftp.getJFrame().jTreeInformacion.addID_Socket(evento.getID_Socket());
 
-       MFtp.getFTP().insertInformacionString("ID_Sockets: "+MFtp.getFTP().id_sockets);
-       MFtp.getFTP().insertInformacionString("Nuevo ID_Socket: "+evento.getID_Socket());
+       mFtp.getFTP().insertInformacionString("ID_Sockets: "+mFtp.getFTP().id_sockets);
+       mFtp.getFTP().insertInformacionString("Nuevo ID_Socket: "+evento.getID_Socket());
     }
     else
     {
@@ -799,7 +801,7 @@ public class ProtocoloFTPMulticast extends Thread
       //Añadir el ID_Socket al árbol de información
       ftp.getJFrame().jTreeInformacion.removeIDSocket(evento.getID_Socket());
 
-      ftp.insertInformacionString("ID_Sockets: "+MFtp.getFTP().id_sockets);
+      ftp.insertInformacionString("ID_Sockets: "+mFtp.getFTP().id_sockets);
       ftp.insertInformacionString("ID_Socket eliminado: "+evento.getID_Socket());
     }
 
@@ -857,7 +859,7 @@ public class ProtocoloFTPMulticast extends Thread
        }
        catch(IOException ioe)
        {
-          MFtp.getFTP().error(ioe.toString());
+          mFtp.getFTP().error(ioe.toString());
        }
    }
  }

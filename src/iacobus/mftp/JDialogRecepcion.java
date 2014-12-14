@@ -1,19 +1,21 @@
-//============================================================================
-//
-//	Copyright (c) 1999 . All Rights Reserved.
-//
-//----------------------------------------------------------------------------
-//
-//	Fichero: JDialogRecepcion.java  1.0 1/12/99
-//
-// 	Autores: 	M. Alejandro García Domínguez (garcia@arconet.es)
-//						Antonio Berrocal Piris
-//
-//	Descripción: Clase JDialogRecepcion.
-//
-//
-//----------------------------------------------------------------------------
+/**
+  Fichero: JDialogRecepcion.java  1.0 1/12/99
+  Copyright (c) 2000-2014 . All Rights Reserved.
+  Autor: Alejandro García Domínguez alejandro.garcia.dominguez@gmail.com   alejandro@iacobus.com
+         Antonio Berrocal Piris antonioberrocalpiris@gmail.com
+ 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
 
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+*/
 
 package iacobus.mftp;
 
@@ -213,11 +215,11 @@ import java.lang.Math;
 
       //Establecer el tiempo.....
       if(lHoras > 0)
-        getjLabelTiempo().setText("Tiempo> "+lHoras+" hr. "+lMinutos+" min.");
+        getjLabelTiempo().setText("Time> "+lHoras+" hr. "+lMinutos+" min.");
       else if(lMinutos > 0)
-        getjLabelTiempo().setText("Tiempo> "+lMinutos+" min. "+lSegundos+" seg.");
+        getjLabelTiempo().setText("Time> "+lMinutos+" min. "+lSegundos+" seg.");
       else
-        getjLabelTiempo().setText("Tiempo> "+lSegundos+" seg.");
+        getjLabelTiempo().setText("Time> "+lSegundos+" seg.");
 
       //Actualizar KB/seg
       this.dKB_seg = ((double)(lBytesRecibidos * 1000)/(double)(lTiempo));
@@ -226,8 +228,8 @@ import java.lang.Math;
 
       //Tamaño....
       if (lBytesRestantes < 0) lBytesRestantes = 0;
-      getjLabelBytesRecibidos().setText("Recibidos: "+this.lBytesRecibidos);
-      getjLabelBytesRestantes().setText("Restantes: "+this.lBytesRestantes);
+      getjLabelBytesRecibidos().setText("Received: "+this.lBytesRecibidos);
+      getjLabelBytesRestantes().setText("Remain: "+this.lBytesRestantes);
 
       //Tiempo restante....
       if(lBytesRecibidos <= 0)
@@ -242,11 +244,11 @@ import java.lang.Math;
       if (lSegundos <0) lSegundos = 0;
 
       if(lHoras > 0)
-        getjLabelTiempoRestante().setText("T. Restante> "+lHoras+" hr. "+lMinutos+" min.");
+        getjLabelTiempoRestante().setText("T. remain> "+lHoras+" hr. "+lMinutos+" min.");
       else if(lMinutos > 0)
-        getjLabelTiempoRestante().setText("T. Restante> "+lMinutos+" min. "+lSegundos+" seg.");
+        getjLabelTiempoRestante().setText("T. remain> "+lMinutos+" min. "+lSegundos+" seg.");
       else
-        getjLabelTiempoRestante().setText("T. Restante> "+lSegundos+" seg.");
+        getjLabelTiempoRestante().setText("T. remain> "+lSegundos+" seg.");
 
       //Barra de Progreso...
       if(lFileSize <= 0)
@@ -393,7 +395,7 @@ import java.lang.Math;
      if (sFileName != null)
      {
       this.sFileName = sFileName;
-      this.getjLabelFileName().setText("Archivo: "+sFileName);
+      this.getjLabelFileName().setText("File: "+sFileName);
      }
    }
 
@@ -407,7 +409,7 @@ import java.lang.Math;
      if (lFileSize > 0)
      {
       this.lFileSize = lFileSize;
-      this.getjLabelFileSize().setText("Tamaño: "+this.lFileSize+" bytes");
+      this.getjLabelFileSize().setText("Size: "+this.lFileSize+" bytes");
      }
    }
 
@@ -465,10 +467,10 @@ import java.lang.Math;
 	 	if (jLabelLogo == null) {
  				jLabelLogo = new JLabel();
 
-        jLabelLogo.setIcon(new ImageIcon( MFtp.getFTP().getImage("bola.gif")));
+        jLabelLogo.setIcon(new ImageIcon( mFtp.getFTP().getImage("bola.gif")));
 
         jLabelLogo.setAlignmentX(Component.RIGHT_ALIGNMENT);
-        jLabelLogo.setToolTipText("Protocolo de Transporte Multicast Fiable (PTMF).");
+        jLabelLogo.setToolTipText("Power Transport Multicast Framework (PTMF).");
 
 		}
 		return jLabelLogo;
@@ -536,9 +538,9 @@ import java.lang.Math;
    {
       if (jButtonCancelar == null)
       {
-        jButtonCancelar = new JButton("Cancelar");
+        jButtonCancelar = new JButton("Cancel");
         jButtonCancelar.addActionListener(getactionListenerCancelar());
-        jButtonCancelar.setIcon(new ImageIcon(MFtp.getFTP().getImage("desconectar.gif")));
+        jButtonCancelar.setIcon(new ImageIcon(mFtp.getFTP().getImage("desconectar.gif")));
       }
 
        return jButtonCancelar;
@@ -569,7 +571,7 @@ import java.lang.Math;
    {
       if (jLabelFileName == null)
       {
-         jLabelFileName = new JLabel("Archivo: "+this.sFileName);
+         jLabelFileName = new JLabel("File: "+this.sFileName);
          jLabelFileName.setAlignmentX(Component.LEFT_ALIGNMENT);
       }
        return jLabelFileName;
@@ -619,7 +621,7 @@ import java.lang.Math;
    {
       if (jLabelFileSize == null)
       {
-         jLabelFileSize = new JLabel("Tamaño: "+this.lFileSize+" bytes");
+         jLabelFileSize = new JLabel("Size: "+this.lFileSize+" bytes");
          jLabelFileSize.setAlignmentX(Component.LEFT_ALIGNMENT);
       }
        return jLabelFileSize;
@@ -634,7 +636,7 @@ import java.lang.Math;
    {
       if (jLabelBytesRecibidos == null)
       {
-         jLabelBytesRecibidos = new JLabel("Recibidos: "+this.lBytesRecibidos);
+         jLabelBytesRecibidos = new JLabel("Receiver: "+this.lBytesRecibidos);
          jLabelBytesRecibidos.setAlignmentX(Component.CENTER_ALIGNMENT);
       }
        return jLabelBytesRecibidos;
@@ -649,7 +651,7 @@ import java.lang.Math;
    {
       if (jLabelBytesRestantes == null)
       {
-         jLabelBytesRestantes = new JLabel("Restantes: "+this.lBytesRestantes);
+         jLabelBytesRestantes = new JLabel("Remain: "+this.lBytesRestantes);
          jLabelBytesRestantes.setAlignmentX(Component.RIGHT_ALIGNMENT);
       }
        return jLabelBytesRestantes;
@@ -664,7 +666,7 @@ import java.lang.Math;
    {
       if (jLabelTiempo == null)
       {
-         jLabelTiempo = new JLabel("Tiempo> 0:00");
+         jLabelTiempo = new JLabel("Time> 0:00");
          jLabelTiempo.setAlignmentX(Component.LEFT_ALIGNMENT);
       }
        return jLabelTiempo;
@@ -713,7 +715,7 @@ import java.lang.Math;
    {
       if (jLabelTiempoRestante == null)
       {
-         jLabelTiempoRestante = new JLabel("T. restante> 0:00");
+         jLabelTiempoRestante = new JLabel("T. remain> 0:00");
          jLabelTiempoRestante.setAlignmentX(Component.LEFT_ALIGNMENT);
          jLabelTiempoRestante.setPreferredSize(new Dimension(150,20));
       }
@@ -730,7 +732,7 @@ import java.lang.Math;
    {
       if (jLabelPuerto == null)
       {
-         jLabelPuerto = new JLabel("Puerto Multicast:");
+         jLabelPuerto = new JLabel("Multicast port:");
          jLabelPuerto.setAlignmentX(Component.LEFT_ALIGNMENT);
       }
        return jLabelPuerto;
@@ -745,7 +747,7 @@ import java.lang.Math;
    {
       if (jLabelTTLSesion == null)
       {
-        jLabelTTLSesion = new JLabel("TTL Sesión:");
+        jLabelTTLSesion = new JLabel("TTL Session:");
         jLabelTTLSesion.setAlignmentX(Component.LEFT_ALIGNMENT);
       }
        return jLabelTTLSesion;
@@ -806,7 +808,7 @@ import java.lang.Math;
    JFrame frame = new JFrame("Prueba de Diálogo");
    frame.show();
 
-   JDialogRecepcion conectar =  new JDialogRecepcion(null,null,"Recepción Multicast...",false,"Iniciando...",0,null,null);
+   JDialogRecepcion conectar =  new JDialogRecepcion(null,null,"Multicast reception...",false,"Iniciando...",0,null,null);
 
    conectar.show();
    long lBytes = 0;
