@@ -15,11 +15,20 @@ PTMF is been designed to be used to implement Scada Multicast on SmartGrids.
 At present test applications are using IEC 60870-5-104 protocol. 
 New protocol IEC 61850 could be used too.
 
-# Multicast tools
+# mFtp - Multicast ftp
 Added MFTP. An Multicast Ftp tool
+Use: java -jar mftp1.2.jar
+
+# mChat - Multicast chat
 Added MChat. An Multicast Chat tool
-Addef mutils. A simple ping tool for send and receive multicast packets to test multicast communications on your network.
+Use: java -jar mchatv1.2.jar
+
+# Multicast tools
+Added mutils. A simple multicast ping tool for send and receive multicast packets to test multicast communications on your network.
+
+Use: java -cp mutil2.0.jar iacobus.mutil.mPingSender
+Use: java -cp mutil2.0.jar iacobus.mutil.mPingReceiver
 
 
 # Licence
-Power Transport Multicast Framework (v2.0) is being moving from v1.2 to 2.0 now to be available under Apache 2.0
+Power Transport Multicast Framework (v2.0) is now available under Apache 2.0
