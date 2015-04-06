@@ -1,5 +1,13 @@
-//  Historial: 
-//	14/10/2014 Change Licence to LGPL
+//============================================================================
+//
+//	Copyright (c) 1999,2014 . All Rights Reserved.
+//
+//----------------------------------------------------------------------------
+//
+//	Fichero: IDGL_TreeMap.java  1.0 17/11/99
+//
+//
+//	Descripción: IDGL
 //
 // 	Authors: 
 //		 Alejandro Garcia Dominguez (alejandro.garcia.dominguez@gmail.com)
@@ -20,40 +28,29 @@
 //
 //      You should have received a copy of the Lesser GNU General Public License
 //      along with PTMF.  If not, see <http://www.gnu.org/licenses/>.
+//
+//----------------------------------------------------------------------------
 
-package test.multicast;
+package ptmf;
 
-import javax.crypto.*;
+import java.util.TreeMap;
 
-import ptmf.Temporizador;
-import iaik.security.provider.IAIK;
-
-public class test
+/**
+ * Esta clase encapsula un objeto IDGL y otro TreeMap,
+ * se utiliza como VALUE en el TreeMap treeMapIDGLVecinos
+ * dentro de la clase CGLThread
+ */
+class IDGL_TreeMap
 {
+  /** IDGL */
+  IDGL idgl = null;
 
-  public test()
+  /** TreeMap */
+  TreeMap treemap = null;
+
+  IDGL_TreeMap(IDGL idgl, TreeMap treemap)
   {
+    this.idgl = idgl;
+    this.treemap = treemap;
   }
-
-   /**
-    * A simple test for a correct installation.
-   */
-   public static void main(String arg[]) {
-
-     IAIK.addAsProvider(true);
-
-     try {
-       Cipher cipher = Cipher.getInstance("DES", "IAIK");
-     } catch (Exception ex) {
-       System.out.println("Exception: "+ex.getMessage());
-       System.out.println("\n\nIAIK-JCE installation error...");
-       System.exit(0);
-     }
-
-     System.out.println("IAIK-JCE installation OK!");
-
-     Temporizador.sleep(20000);
-   }
-  }
-
-  
+}

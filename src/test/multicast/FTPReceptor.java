@@ -15,33 +15,33 @@
 
 package test.multicast;
 
-import iacobus.ptmf.Address;
-import iacobus.ptmf.Buffer;
-import iacobus.ptmf.ID_Socket;
-import iacobus.ptmf.ID_SocketInputStream;
-import iacobus.ptmf.Log;
-import iacobus.ptmf.MulticastInputStream;
-import iacobus.ptmf.MulticastOutputStream;
-import iacobus.ptmf.PTMF;
-import iacobus.ptmf.PTMFConexionListener;
-import iacobus.ptmf.PTMFErrorListener;
-import iacobus.ptmf.PTMFEventConexion;
-import iacobus.ptmf.PTMFEventError;
-import iacobus.ptmf.PTMFEventIDGL;
-import iacobus.ptmf.PTMFEventID_Socket;
-import iacobus.ptmf.PTMFEventID_SocketInputStream;
-import iacobus.ptmf.PTMFExcepcion;
-import iacobus.ptmf.PTMFIDGLListener;
-import iacobus.ptmf.PTMFID_SocketInputStreamListener;
-import iacobus.ptmf.PTMFID_SocketListener;
-import iacobus.ptmf.ParametroInvalidoExcepcion;
-import iacobus.ptmf.SocketPTMF;
-import iacobus.ptmf.Temporizador;
-
 import java.lang.*;
 import java.util.*;
 import java.net.*;
 import java.io.*;
+
+import ptmf.Address;
+import ptmf.Buffer;
+import ptmf.ID_Socket;
+import ptmf.ID_SocketInputStream;
+import ptmf.Log;
+import ptmf.MulticastInputStream;
+import ptmf.MulticastOutputStream;
+import ptmf.PTMF;
+import ptmf.PTMFConexionListener;
+import ptmf.PTMFErrorListener;
+import ptmf.PTMFEventConexion;
+import ptmf.PTMFEventError;
+import ptmf.PTMFEventIDGL;
+import ptmf.PTMFEventID_Socket;
+import ptmf.PTMFEventID_SocketInputStream;
+import ptmf.PTMFExcepcion;
+import ptmf.PTMFIDGLListener;
+import ptmf.PTMFID_SocketInputStreamListener;
+import ptmf.PTMFID_SocketListener;
+import ptmf.ParametroInvalidoExcepcion;
+import ptmf.SocketPTMF;
+import ptmf.Temporizador;
 
 /**
  * Clase de prueba de un FTP Receptor en modo consola.

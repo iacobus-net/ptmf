@@ -1,5 +1,13 @@
-//  Historial: 
-//	14/10/2014 Change Licence to LGPL
+//============================================================================
+//
+//	Copyright (c) 1999-2000,2014 . All Rights Reserved.
+//
+//----------------------------------------------------------------------------
+//
+//	Fichero: IDGLListener.java  1.0 21/1/00
+//
+//
+//	Descripción: Interfaz IDGLListener
 //
 // 	Authors: 
 //		 Alejandro Garcia Dominguez (alejandro.garcia.dominguez@gmail.com)
@@ -20,40 +28,29 @@
 //
 //      You should have received a copy of the Lesser GNU General Public License
 //      along with PTMF.  If not, see <http://www.gnu.org/licenses/>.
+//----------------------------------------------------------------------------
 
-package test.multicast;
+package ptmf;
 
-import javax.crypto.*;
 
-import ptmf.Temporizador;
-import iaik.security.provider.IAIK;
+/**
+ * Esta interfaz es utilizada por la clase CGLThread para notificar
+ * eventos acerca de la incorporación/eliminación de IDGLs en
+ * la jerarquía de control.
+ */
 
-public class test
+public interface IDGLListener
 {
-
-  public test()
-  {
-  }
-
-   /**
-    * A simple test for a correct installation.
+  /**
+   * Notifica que IDGL ha sido añadido
+   * @param idgl Nuevo IDGL que se puede alcanzar
    */
-   public static void main(String arg[]) {
+  public void IDGLAñadido(IDGL idgl);
 
-     IAIK.addAsProvider(true);
+  /**
+   * Notifica que IDGL ha sido eliminado
+   * @param idgl IDGL que ha quedado fuera de alcanze
+   */
+  public void IDGLEliminado(IDGL idgl);
 
-     try {
-       Cipher cipher = Cipher.getInstance("DES", "IAIK");
-     } catch (Exception ex) {
-       System.out.println("Exception: "+ex.getMessage());
-       System.out.println("\n\nIAIK-JCE installation error...");
-       System.exit(0);
-     }
-
-     System.out.println("IAIK-JCE installation OK!");
-
-     Temporizador.sleep(20000);
-   }
-  }
-
-  
+}

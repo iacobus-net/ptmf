@@ -2,15 +2,15 @@
 
 package test.multicast;
 
-import iacobus.ptmf.Buffer;
-import iacobus.ptmf.PTMF;
-import iacobus.ptmf.PTMFExcepcion;
-import iacobus.ptmf.ParametroInvalidoExcepcion;
-
 import java.net.*;
 import java.io.*;
 import java.util.Random;
 import java.lang.*;
+
+import ptmf.Buffer;
+import ptmf.PTMF;
+import ptmf.PTMFExcepcion;
+import ptmf.ParametroInvalidoExcepcion;
 
 public class pruebaBuffer{
 

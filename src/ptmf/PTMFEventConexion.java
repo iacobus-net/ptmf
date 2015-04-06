@@ -1,5 +1,14 @@
-//  Historial: 
-//	14/10/2014 Change Licence to LGPL
+
+//============================================================
+//
+//	Copyright (c) 1999,2014 . All Rights Reserved.
+//
+//------------------------------------------------------------
+//
+//	Fichero: PTMFEventConexion.java  1.0 14/03/2000
+//
+//	Descripción: Clase PTMFEventConexion. Evento PTMF Conexion
+//
 //
 // 	Authors: 
 //		 Alejandro Garcia Dominguez (alejandro.garcia.dominguez@gmail.com)
@@ -20,40 +29,29 @@
 //
 //      You should have received a copy of the Lesser GNU General Public License
 //      along with PTMF.  If not, see <http://www.gnu.org/licenses/>.
+//------------------------------------------------------------
 
-package test.multicast;
+package ptmf;
 
-import javax.crypto.*;
 
-import ptmf.Temporizador;
-import iaik.security.provider.IAIK;
+import java.util.EventObject;
 
-public class test
+/**
+ * La clase PTMFEventConexion es utilizada por PTMF para notificar informacion
+ * relativa a la conexion Multicast
+ */
+public class PTMFEventConexion extends PTMFEvent
 {
 
-  public test()
-  {
-  }
-
-   /**
-    * A simple test for a correct installation.
+  /**
+   * Constructor PTMFEventConexion
+   * @param socket Un objeto SocketPTMFImp
+   * @param sInformativa cadena Informativa
    */
-   public static void main(String arg[]) {
-
-     IAIK.addAsProvider(true);
-
-     try {
-       Cipher cipher = Cipher.getInstance("DES", "IAIK");
-     } catch (Exception ex) {
-       System.out.println("Exception: "+ex.getMessage());
-       System.out.println("\n\nIAIK-JCE installation error...");
-       System.exit(0);
-     }
-
-     System.out.println("IAIK-JCE installation OK!");
-
-     Temporizador.sleep(20000);
-   }
+  public PTMFEventConexion(SocketPTMFImp socket,String sInformativa)
+  {
+    super(socket,EVENTO_CONEXION,sInformativa);
   }
 
-  
+}
+

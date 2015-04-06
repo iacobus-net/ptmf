@@ -1,5 +1,13 @@
-//  Historial: 
-//	14/10/2014 Change Licence to LGPL
+//============================================================
+//
+//	Copyright (c) 1999,2014 . All Rights Reserved.
+//
+//------------------------------------------------------------
+//
+//	Fichero: PTMFCipher.java  1.0 24/11/99
+//
+//
+//	Descripción: Interfaz PTMFCipher
 //
 // 	Authors: 
 //		 Alejandro Garcia Dominguez (alejandro.garcia.dominguez@gmail.com)
@@ -20,40 +28,23 @@
 //
 //      You should have received a copy of the Lesser GNU General Public License
 //      along with PTMF.  If not, see <http://www.gnu.org/licenses/>.
+//------------------------------------------------------------
 
-package test.multicast;
 
-import javax.crypto.*;
+package ptmf;
 
-import ptmf.Temporizador;
-import iaik.security.provider.IAIK;
-
-public class test
+/**
+ * La interfaz PTMFCipher se utiliza para proporcionar seguridad al Canal Multicast.
+ * Su única misión es proporcionar dos objetos javax.crypto.Cipher para codificar
+ * y descodificar, además de un método de iniciación del codificador y del descodificador.
+ * En este método se deberá llamar al método init() del los objetos javax.crypto.Cipher.
+ */
+public interface PTMFCipher
 {
 
-  public test()
-  {
-  }
+  public javax.crypto.Cipher getCipher();
 
-   /**
-    * A simple test for a correct installation.
-   */
-   public static void main(String arg[]) {
+  public javax.crypto.Cipher getUncipher();
 
-     IAIK.addAsProvider(true);
-
-     try {
-       Cipher cipher = Cipher.getInstance("DES", "IAIK");
-     } catch (Exception ex) {
-       System.out.println("Exception: "+ex.getMessage());
-       System.out.println("\n\nIAIK-JCE installation error...");
-       System.exit(0);
-     }
-
-     System.out.println("IAIK-JCE installation OK!");
-
-     Temporizador.sleep(20000);
-   }
-  }
-
-  
+  public void init();
+}

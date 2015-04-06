@@ -43,7 +43,7 @@ import javax.crypto.spec.PBEParameterSpec;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.SecretKey;
 
-import iacobus.ptmf.Log;
+import ptmf.Log;
 import iaik.security.cipher.PBEKeyBMP;
 
 import java.security.Security;
